@@ -9,6 +9,7 @@ import PriceDisplay from "../../components/price-display";
 import {createSfxManager} from "../../components/sfx";
 import SwipeableDrawer from "@mui/material/SwipeableDrawer";
 import './index.css'
+import INFORMATION_CONSTANTS from "../../constants/information";
 
 const sfx = createSfxManager();
 const MobileBottomSheet = () => {
@@ -100,7 +101,7 @@ const MobileBottomSheet = () => {
     }, [activeParity?.code])
 
     const handleClose = () =>
-        store.dispatch({type: "SET_SHOW_PARITY_LIST", data: null})
+        store.dispatch({type: INFORMATION_CONSTANTS.SHOW_SYMBOL_LIST, data: false})
 
 
     useEffect(() => {

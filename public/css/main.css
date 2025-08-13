@@ -1162,7 +1162,7 @@ input[type="range"]:focus {
 }
 
 .game--apioption .game__pair {
-    margin-bottom: 16px
+    margin-bottom: 8px
 }
 
 @media (min-width: 768px) {
@@ -3785,7 +3785,7 @@ input[type="range"]:focus {
     align-items: flex-start;
     position: relative;
     width: 100%;
-    padding: 16px 0
+    padding: 8px 0
 }
 
 .apigame__title {
@@ -3799,7 +3799,7 @@ input[type="range"]:focus {
     align-items: flex-start;
     position: relative;
     width: 100%;
-    margin-bottom: 10px
+    margin-bottom: 4px
 }
 
 .apigame__group--row {
@@ -3823,7 +3823,7 @@ input[type="range"]:focus {
     height: 16px;
     color: #424f66;
     font-weight: 600;
-    margin-bottom: 8px
+    margin-bottom: 2px
 }
 
 .apigame__label b {
