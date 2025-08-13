@@ -13,6 +13,7 @@ import Containers from "./index";
 import {toast} from "react-toastify";
 import PositionNotification from "../components/NotificationBar/PositionNotification";
 import InsufficentBalanceNotification from "../components/NotificationBar/InsufficentBalanceNotification";
+import PositionResultedNotification from "../components/NotificationBar/PositionResultedNotification";
 
 
 // const signalAudio = new Audio('https://vendor-provider.fra1.cdn.digitaloceanspaces.com/binary/sfx/signal-move.mp3')
@@ -252,7 +253,7 @@ const Content = () => {
             // toast.error(msg)
         }
 
-        // toast(<PositionResultedNotification notification={data}/>)
+        toast(<PositionResultedNotification notification={data}/>)
 
         console.log(msg)
         store.dispatch({type: INFORMATION_CONSTANTS.RESULT_BET, data})
