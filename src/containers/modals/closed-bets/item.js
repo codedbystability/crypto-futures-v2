@@ -193,12 +193,12 @@ const ClosedBetItem = (props) => {
                                 </span>
                             </div>
                             <div className="btable__col">
-                                <span className="btable__name">{t('active-bets.entry')}</span>
+                                <span className="btable__name">{t('active-bets.id')}</span>
                                 {/* .orange .red .green */}
                                 <span className="btable__text">{bet?.unique_id}</span>
                             </div>
                             <div className="btable__col">
-                                <span className="btable__name">{t('active-bets.id')}</span>
+                                <span className="btable__name">{t('active-bets.profit')}</span>
                                 {/* .orange .red .green */}
                                 <span className={`btable__text ${bet?.profit >= 0 ? 'green' : 'red'}`}>
                                {bet?.profit}
