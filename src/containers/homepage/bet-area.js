@@ -123,8 +123,6 @@ const BetArea = () => {
     }
     const onAmountChange = value => {
         const cleanValue = String(value).replace(/[^0-9]/g, '');
-
-        console.log('cleanValue = ',cleanValue)
         // If nothing left after cleaning → reset
         if (cleanValue.length === 0) {
             return setAmount('');
