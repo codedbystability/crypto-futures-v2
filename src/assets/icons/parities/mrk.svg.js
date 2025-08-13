@@ -1,0 +1,12 @@
+import * as React from "react"
+
+const MrkSvg = (props) => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 56 56">
+        <path fill="#009394" d="M0 0h56v56H0z"/>
+        <path
+            d="M28 12a8 8 0 00-8 8h16c0 4.419-3.581 8-8 8a8 8 0 01-8-8 8 8 0 00-8 8 8 8 0 008 8 8 8 0 0116 0H20a8 8 0 008 8c4.419 0 8-3.58 8-8a8 8 0 100-16 8 8 0 00-8-8zm8 8z"
+            fill="#fff"/>
+    </svg>
+)
+
+export default MrkSvg

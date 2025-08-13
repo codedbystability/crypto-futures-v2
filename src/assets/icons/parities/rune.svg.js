@@ -1,0 +1,16 @@
+import * as React from "react"
+
+const RuneUSDT = (props) => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 56 56">
+        <path fill="url(#paint0_linear)" d="M0 0h56v56H0z"/>
+        <path d="M14 44l22.422-9.408-7.093-7.17L14 44zm8.235-23.738l7.094 7.16L42 12l-19.765 8.262z" fill="#fff"/>
+        <defs>
+            <linearGradient id="paint0_linear" x1="56" y1="28" x2="0" y2="28" gradientUnits="userSpaceOnUse">
+                <stop stopColor="#3F9"/>
+                <stop offset="1" stopColor="#0CF"/>
+            </linearGradient>
+        </defs>
+    </svg>
+)
+
+export default RuneUSDT

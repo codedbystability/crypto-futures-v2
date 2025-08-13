@@ -1,0 +1,4081 @@
+$white = #fff
+$black = #000
+
+$bg = #0E121D
+$bg2 = #141925
+$grey = #424F66
+$blue = #0F5EFF
+$green = #66D535
+$red = #E32322
+$yellow = #FFD764
+$forex = #FBA61E
+
+$btc = #F7931A
+$eth = #5F7EDD
+$bnb = #F3BC36
+$sol = #9945FE
+$xrp = #ffffff
+$ada = #2079FF
+$doge = #C4A939
+$ltc = #2B53B7
+
+/*==============================
+	Fonts
+==============================*/
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Russo+One&display=swap')
+
+/*==============================
+	Common styles
+==============================*/
+html
+	scroll-behavior smooth
+
+body
+	font-family 'Manrope', sans-serif
+	background-color $bg
+	font-weight 400
+	font-optical-sizing auto
+	font-style normal
+
+button
+	padding 0
+	border none
+	background-color transparent
+	transition .4s ease
+	transition-property color, background-color, border-color, box-shadow, opacity
+	cursor pointer
+	&:focus
+		outline none
+
+a
+	text-decoration none
+	transition .4s ease
+	transition-property color, background-color, border-color, box-shadow, opacity
+	&:hover
+	&:active
+	&:focus
+		outline none
+		text-decoration none
+
+input
+textarea
+select
+	padding 0
+	margin 0
+	border-radius 0
+	-webkit-appearance none
+	-moz-appearance none
+	-ms-appearance none
+	appearance none
+	box-shadow none
+	transition .4s ease
+	transition-property color, border-color, box-shadow
+	&:focus
+		outline none
+
+select::-ms-expand
+	display none
+
+input::-webkit-outer-spin-button
+input::-webkit-inner-spin-button
+	-webkit-appearance none
+	margin 0
+
+ul
+	margin 0
+	padding 0
+	list-style none
+
+svg
+	transition .4s ease
+	transition-property stroke, fill
+
+::-moz-selection
+	background $white
+	color $black
+	text-shadow none
+::selection
+	background $white
+	color $black
+	text-shadow none
+
+::-webkit-input-placeholder
+	color $grey
+	opacity 1
+::-moz-placeholder
+	color $grey
+	opacity 1
+:-moz-placeholder
+	color $grey
+	opacity 1
+:-ms-input-placeholder
+	color $grey
+	opacity 1
+
+:focus
+	outline 0 !important
+
+:focus-visible
+	outline 0 !important
+
+input[type="number"]::-webkit-inner-spin-button
+input[type="number"]::-webkit-outer-spin-button
+	-webkit-appearance none
+	margin 0
+
+input[type="number"]
+	-moz-appearance textfield
+
+.tab-content
+.collapse
+	width 100%
+
+@media (min-width: 1400px)
+	.container
+	.container-lg
+	.container-md
+	.container-sm
+	.container-xl
+	.container-xxl
+		max-width 1384px
+@media (min-width: 1900px)
+	.container
+	.container-lg
+	.container-md
+	.container-sm
+	.container-xl
+	.container-xxl
+		max-width 1724px
+
+input[type="range"]
+	-webkit-appearance none
+	appearance none
+	background linear-gradient(90deg, rgba($green, 1) 0%, rgba($forex, 1) 50%, rgba($red, 1) 100%)
+	cursor pointer
+	width 100%
+	border-radius 12px
+	margin-top 12px
+
+input[type="range"]::-webkit-slider-runnable-track
+	background linear-gradient(90deg, rgba($green, 1) 0%, rgba($forex, 1) 50%, rgba($red, 1) 100%)
+	height 24px
+	border-radius 12px
+
+input[type="range"]::-moz-range-track
+	background linear-gradient(90deg, rgba($green, 1) 0%, rgba($forex, 1) 50%, rgba($red, 1) 100%)
+	height 24px
+	border-radius 12px
+
+input[type="range"]::-webkit-slider-thumb
+	-webkit-appearance none
+	appearance none
+	background-color $bg
+	margin-top 2px
+	height 20px
+	width 20px
+	border-radius 50%
+
+input[type="range"]::-moz-range-thumb
+	border none
+	border-radius 50%
+	background-color $bg
+	height 20px
+	width 20px
+
+input[type="range"]:focus
+	outline none
+
+
+/*==============================
+	Preloader
+==============================*/
+.preloader
+	position fixed
+	top 0
+	left 0
+	width 100%
+	height 100%
+	background url('../img/loader.png')
+	display flex
+	flex-direction column
+	justify-content center
+	align-items center
+	z-index 9999
+	transition opacity 0.4s ease
+	&.fade-out
+		opacity 0
+		pointer-events none
+	&__video
+		position absolute
+		z-index 1
+		top 0
+		right 0
+		bottom 0
+		left 0
+		opacity .1
+		&:after
+			content ''
+			position absolute
+			top 0
+			right 0
+			bottom 0
+			left 0
+			z-index 2
+			background linear-gradient(90deg, rgba(#0E121D, 0) 0%, rgba(#0E121D, 1) 100%)
+		video
+			position absolute
+			z-index 1
+			top 50%
+			left 50%
+			min-width 100%
+			min-height 100%
+			transform translate(-50%, -50%)
+			object-fit cover
+	&__logo
+		position relative
+		z-index 3
+		img
+			height 60px
+			width auto
+		&--small
+			img
+				height 40px
+	&__copyright
+		position relative
+		z-index 3
+		display flex
+		flex-direction row
+		justify-content center
+		align-items center
+		position absolute
+		left 0
+		right 0
+		bottom 20px
+		span
+			font-size 16px
+			line-height 32px
+			color $white
+			font-weight 700
+			margin-right 10px
+		img
+			height 32px
+			width auto
+	@media (min-width: 768px)
+		&__logo
+			img
+				height 160px
+			&--small
+				img
+					height 120px
+		&__copyright
+			bottom 40px
+
+/*==============================
+	Header
+==============================*/
+.header
+	position relative
+	width 100%
+	padding 16px 0
+	&__content
+		display flex
+		flex-direction row
+		justify-content space-between
+		align-items center
+		width 100%
+	&__logo
+		width auto
+		height 34px
+		img
+			width auto
+			height 100%
+	&__drop
+		display inline-flex
+		flex-direction column
+		justify-content flex-start
+		align-items flex-start
+		position relative
+		.dropdown-menu
+			background-color transparent
+			padding 0
+			border none
+		img
+			width 48px
+			height 48px
+			border-radius 50%
+			position absolute
+			top 0
+			left 0
+			display none
+		p
+			font-size 16px
+			line-height 20px
+			color $white
+			font-weight 800
+			margin-bottom 0
+	&__drop-btn
+		display inline-flex
+		flex-direction row
+		justify-content flex-start
+		align-items center
+		font-size 14px
+		line-height 20px
+		font-weight 600
+		color $grey
+		margin-bottom 0
+		svg
+			width 8px
+			height 8px
+			fill #424F66
+			margin-left 4px
+		&.show
+		&:hover
+			svg
+				fill $white
+	&__drop-menu
+		display flex
+		flex-direction column
+		justify-content flex-start
+		align-items flex-start
+		width 220px
+		background-color $bg2
+		padding 16px
+		border-radius 8px
+	&__actions
+		display none
+		flex-direction row
+		justify-content space-between
+		align-items center
+		width auto
+		margin-left auto
+	&__action
+		display flex
+		flex-direction row
+		justify-content center
+		align-items center
+		position relative
+		width 20px
+		height 20px
+		margin-right 10px
+		svg
+			width 20px
+			height 20px
+			fill $grey
+		&:last-child
+			margin-right 0
+		&:hover
+			svg
+				fill $white
+		&--volume
+			svg
+				&:last-child
+					display none
+			&.active
+				svg
+					display none
+					&:last-child
+						display block
+	&__lang
+		position relative
+		margin-right 10px
+		.dropdown-menu
+			background-color transparent
+			padding 0
+			border none
+	&__lang-btn
+		display flex
+		flex-direction row
+		justify-content center
+		align-items center
+		width 20px
+		height 20px
+		img
+			width 20px
+			height 20px
+			border-radius 50%
+	&__lang-menu
+		display flex
+		flex-direction column
+		justify-content flex-start
+		align-items flex-start
+		width 160px
+		background-color $bg2
+		padding 16px
+		border-radius 8px
+		a
+			display flex
+			flex-direction row
+			justify-content flex-start
+			align-items center
+			margin-bottom 16px
+			font-size 14px
+			line-height 24px
+			font-weight 500
+			color $white
+			&:last-child
+				margin-bottom 0
+			img
+				width 20px
+				height 20px
+				border-radius 50%
+				margin-right 8px
+			&:hover
+				color $blue
+			&.active
+				color $blue
+	&__btn
+		display flex
+		flex-direction row
+		justify-content center
+		align-items center
+		width 24px
+		height 24px
+		svg
+			width 24px
+			height auto
+			fill $grey
+		&--active
+			svg
+				fill $white
+	@media (min-width: 768px)
+		padding 30px 0
+		&__content
+			justify-content flex-start
+		&__logo
+			height 48px
+		&__drop
+			padding-left 56px
+			margin-left 30px
+			img
+				display block
+			p
+				font-size 20px
+				line-height 24px
+		&__drop-btn
+			line-height 24px
+			font-size 16px
+		&__actions
+			display flex
+		&__action
+			width 24px
+			height 24px
+			margin-right 16px
+			&:last-child
+				margin-right 0
+			svg
+				width 24px
+				height 24px
+		&__lang
+			margin-right 16px
+		&__lang-btn
+			width 24px
+			height 24px
+			img
+				width 24px
+				height 24px
+		&__btn
+			display none
+	@media (min-width: 1400px)
+		&__logo
+			height 64px
+			margin-right 30px
+		&__drop
+			p
+				font-size 24px
+	@media (min-width: 1900px)
+		&__logo
+			height 80px
+		&__action
+			width 32px
+			height 32px
+			margin-right 24px
+			&:last-child
+				margin-right 0
+			svg
+				width 32px
+				height 32px
+		&__lang
+			margin-right 24px
+		&__lang-btn
+			width 32px
+			height 32px
+			img
+				width 32px
+				height 32px
+
+/*==============================
+	Menu
+==============================*/
+.menu
+	position fixed
+	z-index 99
+	top 72px
+	left 0
+	width 100vw
+	bottom 0
+	background-color $bg
+	display flex
+	flex-direction column
+	justify-content center
+	align-items center
+	transform translate3d(100vw, 0, 0)
+	transition transform .4s ease
+	&--active
+		transform translate3d(0, 0, 0)
+	&__logo
+		width auto
+		height 48px
+		margin-bottom 56px
+		img
+			width auto
+			height 100%
+	&__nav
+		display flex
+		flex-direction column
+		justify-content center
+		align-items center
+		width 100%
+	&__action
+		display flex
+		flex-direction row
+		justify-content center
+		align-items center
+		position relative
+		width auto
+		height 30px
+		margin-bottom 24px
+		svg
+			width 30px
+			height 30px
+			fill $grey
+			margin-right 12px
+		span
+			font-size 16px
+			font-weight 800
+			color $white
+		&:last-child
+			margin-bottom 0
+		&:hover
+			svg
+				fill $white
+		&--volume
+			svg
+				&:nth-child(2)
+					display none
+			&.active
+				svg
+					display none
+					&:nth-child(2)
+						display block
+	&__lang
+		position relative
+		margin-bottom 24px
+		.dropdown-menu
+			background-color transparent
+			padding 0
+			border none
+	&__lang-btn
+		display flex
+		flex-direction row
+		justify-content center
+		align-items center
+		width auto
+		height 30px
+		img
+			width 30px
+			height 30px
+			border-radius 50%
+			margin-right 12px
+		span
+			font-size 16px
+			font-weight 800
+			color $white
+	&__lang-menu
+		display flex
+		flex-direction column
+		justify-content flex-start
+		align-items flex-start
+		width 160px
+		background-color $bg2
+		padding 16px
+		border-radius 8px
+		a
+			display flex
+			flex-direction row
+			justify-content flex-start
+			align-items center
+			margin-bottom 16px
+			font-size 14px
+			line-height 24px
+			font-weight 500
+			color $white
+			&:last-child
+				margin-bottom 0
+			img
+				width 20px
+				height 20px
+				border-radius 50%
+				margin-right 8px
+			&:hover
+				color $blue
+			&.active
+				color $blue
+	@media (min-width: 768px)
+		display none
+
+/*==============================
+	Game
+==============================*/
+.game
+	display flex
+	flex-direction column
+	justify-content space-between
+	align-items center
+	width 100%
+	min-height calc(100dvh - 196px)
+	position relative
+	&__pair
+		display flex
+		flex-direction row
+		justify-content space-between
+		align-items center
+		width 100%
+		height 60px
+		padding 0 8px
+		margin-bottom 24px
+		border-radius 8px
+		border 1px solid transparent
+		&.btc
+			background linear-gradient(90deg, rgba($btc, .24) 0%, rgba($bg, 0) 100%)
+			border-color rgba($btc, .24)
+			.game__pair-coin
+				svg
+					fill $btc
+		&.eth
+			background linear-gradient(90deg, rgba($eth, .24) 0%, rgba($bg, 0) 100%)
+			border-color rgba($eth, .24)
+			.game__pair-coin
+				svg
+					fill $eth
+		&.bnb
+			background linear-gradient(90deg, rgba($bnb, .24) 0%, rgba($bg, 0) 100%)
+			border-color rgba($bnb, .24)
+			.game__pair-coin
+				svg
+					fill $bnb
+		&.sol
+			background linear-gradient(90deg, rgba($sol, .24) 0%, rgba($bg, 0) 100%)
+			border-color rgba($sol, .24)
+			.game__pair-coin
+				svg
+					fill $sol
+		&.xrp
+			background linear-gradient(90deg, rgba($xrp, .24) 0%, rgba($bg, 0) 100%)
+			border-color rgba($xrp, .24)
+			.game__pair-coin
+				svg
+					fill $xrp
+		&.ada
+			background linear-gradient(90deg, rgba($ada, .24) 0%, rgba($bg, 0) 100%)
+			border-color rgba($ada, .24)
+			.game__pair-coin
+				svg
+					fill $ada
+		&.doge
+			background linear-gradient(90deg, rgba($doge, .24) 0%, rgba($bg, 0) 100%)
+			border-color rgba($doge, .24)
+			.game__pair-coin
+				svg
+					fill $doge
+		&.ltc
+			background linear-gradient(90deg, rgba($ltc, .24) 0%, rgba($bg, 0) 100%)
+			border-color rgba($ltc, .24)
+			.game__pair-coin
+				svg
+					fill $ltc
+	&__pair-coin
+		display flex
+		flex-direction row
+		justify-content flex-start
+		align-items center
+		img
+			width 24px
+			height 24px
+			margin-right 4px
+		span
+			display flex
+			flex-direction column
+			justify-content flex-start
+			align-items flex-start
+			margin-right 8px
+			i
+				font-size 14px
+				font-weight 800
+				line-height 20px
+				color $white
+				text-transform uppercase
+				font-style normal
+			small
+				font-size 8px
+				line-height 10px
+				font-weight 600
+				color #bbbbbb
+		svg
+			width 8px
+			height 8px
+			fill $white
+	&__pair-parity
+		display flex
+		flex-direction row
+		justify-content flex-end
+		align-items center
+		font-size 12px
+		font-weight 600
+		color $white
+		svg
+			width 20px
+			height 20px
+			fill $white
+			margin-right 10px
+	&__head
+		display flex
+		flex-direction column
+		justify-content flex-start
+		align-items center
+		width 100%
+		margin-bottom 24px
+	&__title
+		font-size 18px
+		line-height 26px
+		color $white
+		text-align center
+		font-weight 400
+		margin-bottom 16px
+		width 100%
+		b
+			font-weight 700
+		&:last-child
+			margin-bottom 0
+	&__coin
+		display flex
+		flex-direction row
+		justify-content center
+		align-items center
+		width 100%
+		font-size 16px
+		line-height 24px
+		color $white
+		text-align center
+		font-weight 600
+		margin-bottom 10px
+		img
+			width 24px
+			height 24px
+			margin-right 8px
+		&:last-child
+			margin-bottom 0
+		&.btc
+			color $btc
+		&.eth
+			color $eth
+		&.bnb
+			color $bnb
+		&.sol
+			color $sol
+		&.xrp
+			color $xrp
+		&.ada
+			color $ada
+		&.doge
+			color $doge
+		&.ltc
+			color $ltc
+	&__price
+		font-family 'Russo One', sans-serif
+		font-size 48px
+		line-height 56px
+		color $white
+		text-align center
+		margin-bottom 10px
+		height 56px
+		span
+			font-size 32px
+		&:last-child
+			margin-bottom 0
+	&__time
+		font-size 14px
+		line-height 20px
+		font-weight 600
+		color $white
+		text-align center
+		margin-bottom 16px
+		&:last-child
+			margin-bottom 0
+		&.btc
+			color $btc
+		&.eth
+			color $eth
+		&.bnb
+			color $bnb
+		&.sol
+			color $sol
+		&.xrp
+			color $xrp
+		&.ada
+			color $ada
+		&.doge
+			color $doge
+		&.ltc
+			color $ltc
+	&__frame
+		position relative
+		width 100%
+		background-color transparent
+	&__live
+		display inline-flex
+		flex-direction row
+		justify-content center
+		align-items center
+		margin-bottom 24px
+		svg
+			width 24px
+			height 24px
+			margin-right 8px
+		span
+			font-size 18px
+			line-height 24px
+			color $grey
+			font-weight 700
+	&__counter
+		display flex
+		flex-direction row
+		justify-content center
+		align-items center
+		width 60px
+		height 60px
+		border-radius 50%
+		background-color $grey
+		border 2px solid rgba(#CAD1DD, .24)
+		margin-top 24px
+		span
+			font-size 24px
+			font-weight 800
+			color $white
+	&__stat
+		display flex
+		flex-direction row
+		justify-content center
+		align-items center
+		width 100%
+		padding 16px 0
+		flex-wrap wrap
+		gap 24px
+		button
+			font-size 16px
+			font-weight 500
+			color $grey
+			text-align center
+	&--apioption
+		min-height auto
+		justify-content flex-start
+		.game__pair
+			margin-bottom 16px
+	@media (min-width: 768px)
+		min-height calc(100dvh - 244px)
+		&__title
+			font-size 20px
+			line-height 28px
+			margin-bottom 24px
+		&__coin
+			font-size 20px
+			line-height 30px
+			img
+				width 30px
+				height 30px
+		&__price
+			font-size 64px
+			line-height 70px
+			height 70px
+			span
+				font-size 40px
+		&__time
+			font-size 16px
+			line-height 24px
+			margin-bottom 24px
+		&__live
+			margin-bottom 48px
+			svg
+				width 32px
+				height 32px
+			span
+				font-size 24px
+				line-height 32px
+		&__counter
+			width 80px
+			height 80px
+			margin-top 48px
+			span
+				font-size 36px
+		&--apioption
+			min-height auto
+	@media (min-width: 1200px)
+		&__pair
+		&__stat
+			display none
+	@media (min-width: 1400px)
+		min-height calc(100dvh - 260px)
+		&--apioption
+			min-height auto
+	@media (min-width: 1900px)
+		min-height calc(100dvh - 276px)
+		justify-content flex-start
+		&--apioption
+			min-height auto
+
+/*==============================
+	Frame
+==============================*/
+.frame
+	display flex
+	flex-direction column
+	justify-content flex-start
+	align-items center
+	width 100%
+	&__head
+		display flex
+		flex-direction row
+		justify-content space-between
+		align-items center
+		width 100%
+		height 42px
+		background-color $bg2
+		padding 0 20px
+	&__round
+	&__counter
+		font-size 12px
+		line-height 16px
+		font-weight 700
+		color $white
+	&__drop
+		display inline-flex
+		flex-direction column
+		justify-content flex-start
+		align-items flex-end
+		position relative
+		.dropdown-menu
+			background-color transparent
+			padding 0
+			border none
+			min-width 110px
+	&__drop-btn
+		display inline-flex
+		flex-direction row
+		justify-content flex-start
+		align-items center
+		font-size 12px
+		line-height 16px
+		font-weight 700
+		color $white
+		text-transform uppercase
+		svg
+			width 8px
+			height 8px
+			fill $white
+			margin-left 4px
+		span
+			margin-left 4px
+	&__drop-menu
+		display flex
+		flex-direction column
+		justify-content flex-start
+		align-items flex-start
+		width 110px
+		background-color $bg2
+		padding 16px
+		border-radius 8px
+		li
+			margin-bottom 8px
+			&:last-child
+				margin-bottom 0
+			&.active
+				span
+					color $blue
+		span
+			font-size 12px
+			line-height 16px
+			font-weight 700
+			color $white
+			cursor pointer
+	&__btns
+		display flex
+		flex-direction row
+		justify-content flex-start
+		align-items flex-start
+		width 100%
+		height 100%
+		position relative
+		&:before
+			content ''
+			position absolute
+			top 0
+			right 0
+			bottom 0
+			left 0
+			background url('../img/zip.svg') no-repeat center
+			background-size auto 100%
+			pointer-events none
+	&__btn
+		display flex
+		flex-direction column
+		justify-content center
+		align-items center
+		width 50%
+		height 100%
+		position relative
+		z-index 1
+		&:before
+			content ''
+			position absolute
+			z-index 1
+			top 0
+			right 0
+			bottom 0
+			left 0
+			pointer-events none
+			opacity .25
+			transition opacity .4s ease
+		&--down
+			padding-right 20px
+			&:before
+				background linear-gradient(90deg, #E32322 0%, rgba(41, 38, 39, 0) 88%)
+			.frame__oval
+				span
+					color $red
+			&.active
+				&:before
+					opacity 1
+				.frame__oval
+					border-color $red
+		&--up
+			padding-left 20px
+			&:before
+				background linear-gradient(90deg, rgba(41, 38, 39, 0) 12%, #66D535 100%)
+			.frame__oval
+				span
+					color $green
+			&.active
+				&:before
+					opacity 1
+				.frame__oval
+					border-color $green
+		&:hover
+			&:before
+				opacity 1
+	&__ratio
+		display inline-flex
+		flex-direction row
+		justify-content center
+		align-items center
+		font-size 12px
+		font-weight 800
+		line-height 16px
+		color $white
+		position relative
+		z-index 2
+		svg
+			width 8px
+			height 8px
+			fill $white
+			margin 0 5px
+	&__oval
+		display flex
+		flex-direction column
+		justify-content center
+		align-items center
+		width 100px
+		height 150px
+		background-color $bg
+		position relative
+		z-index 2
+		margin-top 10px
+		border-radius 50px
+		border 5px solid transparent
+		transition border-color .4s ease
+		svg
+			width 60px
+			height auto
+		span
+			font-family 'Russo One', sans-serif
+			font-size 20px
+			text-transform uppercase
+			text-align center
+			line-height 24px
+			margin-top 10px
+	&__text
+		font-size 14px
+		line-height 24px
+		font-weight 700
+		color $grey
+		text-align center
+		margin-bottom 0
+		margin-top 16px
+	&__copy
+		display inline-flex
+		flex-direction row
+		justify-content flex-end
+		align-items center
+		width auto
+		span
+			font-size 12px
+			line-height 16px
+			font-weight 700
+			color $white
+			margin-right 4px
+		svg
+			width 16px
+			height 16px
+			fill $white
+	&__content
+		position relative
+		width 100%
+		height 200px
+		background-color $bg
+		&--details
+			height 240px
+	&--border
+		padding 4px
+		background linear-gradient(0deg, rgba(#E32322, 1) 0%, rgba(#66D535, 1) 100%)
+	&--border-green
+		padding 4px
+		background linear-gradient(60deg, rgba($green, 1) 0%, rgba($bg, 1) 50%, rgba($green, 1) 100%)
+	&--border-red
+		padding 4px
+		background linear-gradient(60deg, rgba($red, 1) 0%, rgba($bg, 1) 50%, rgba($red, 1) 100%)
+	&--border-orange
+		padding 4px
+		background linear-gradient(60deg, rgba($forex, 1) 0%, rgba($bg, 1) 50%, rgba($forex, 1) 100%)
+	@media (min-width: 768px)
+		&__head
+			height 56px
+			padding 0 30px
+		&__round
+			min-width 100px
+		&__counter
+			min-width 200px
+			text-align center
+		&__round
+		&__counter
+		&__drop-btn
+			font-size 16px
+			line-height 24px
+		&__drop
+			min-width 100px
+		&__drop-menu
+			li
+				margin-bottom 16px
+				&:last-child
+					margin-bottom 0
+			span
+				font-size 16px
+				line-height 24px
+		&__ratio
+			font-size 24px
+			line-height 34px
+			svg
+				width 16px
+				height 16px
+		&__oval
+			width 220px
+			height 320px
+			border-radius 110px
+			svg
+				width 110px
+			span
+				font-size 42px
+				line-height 56px
+		&__text
+			font-size 20px
+			margin-top 24px
+		&__copy
+			span
+				font-size 16px
+				line-height 24px
+			svg
+				width 20px
+				height 20px
+		&__content
+			height 440px
+			&--details
+				height 240px
+	@media (min-width: 1200px)
+		&__oval
+			width 180px
+			height 260px
+			border-radius 90px
+			svg
+				width 100px
+			span
+				font-size 40px
+		&__content
+			&--details
+				height 270px
+	@media (min-width: 1400px)
+		&__btn
+			&--down
+				padding-right 40px
+			&--up
+				padding-left 40px
+	@media (min-width: 1900px)
+		&__btn
+			&--down
+				padding-right 50px
+			&--up
+				padding-left 50px
+
+/*==============================
+	Insufficient
+==============================*/
+.insufficient
+	display flex
+	flex-direction column
+	justify-content center
+	align-items center
+	width 100%
+	background-color $blue
+	padding 0 20px
+	height 100%
+	&__img
+		width 40px
+		height auto
+		margin-bottom 10px
+		display none
+	&__title
+		font-size 20px
+		font-weight 700
+		color $white
+		text-align center
+		text-transform uppercase
+		margin-bottom 10px
+	&__text
+		font-size 14px
+		line-height 24px
+		font-weight 700
+		color $white
+		text-align center
+		max-width 500px
+		margin-bottom 16px
+	&__btn
+		display flex
+		flex-direction row
+		justify-content center
+		align-items center
+		width 140px
+		height 40px
+		background-color $yellow
+		border-radius 8px
+		font-size 14px
+		font-weight 800
+		color $bg
+		text-transform uppercase
+		&:hover
+			background-color $bg
+			color $yellow
+	@media (min-width: 768px)
+		&__img
+			display block
+			width 70px
+			margin-bottom 16px
+		&__title
+			font-size 36px
+			margin-bottom 16px
+		&__text
+			font-size 20px
+			line-height 30px
+			margin-bottom 48px
+		&__btn
+			width 160px
+			height 48px
+			font-size 16px
+
+/*==============================
+	Loading
+==============================*/
+.loading
+	display flex
+	flex-direction column
+	justify-content center
+	align-items center
+	width 100%
+	padding 0 20px
+	height 100%
+	&__title
+		font-size 20px
+		font-weight 700
+		color $white
+		text-align center
+		margin-bottom 20px
+	&__img
+		width 40px
+		height 40px
+		animation rotating 2s linear infinite
+	@media (min-width: 768px)
+		&__title
+			font-size 36px
+		&__img
+			width 60px
+			height 60px
+
+@keyframes rotating
+	0% 
+		rotate 0deg
+	100%
+		rotate 360deg
+
+/*==============================
+	Apioption
+==============================*/
+.apioption
+	display flex
+	flex-direction column
+	justify-content center
+	align-items center
+	width 100%
+	padding 0 20px
+	height 100%
+	&__head
+		display flex
+		flex-direction column
+		justify-content flex-start
+		align-items center
+		width 100%
+		margin-bottom 24px
+	&__coin
+		display flex
+		flex-direction row
+		justify-content center
+		align-items center
+		width 100%
+		font-size 16px
+		line-height 24px
+		color $white
+		text-align center
+		font-weight 600
+		margin-bottom 10px
+		img
+			width 24px
+			height 24px
+			margin-right 8px
+		button
+			display flex
+			flex-direction row
+			justify-content center
+			align-items center
+			width 16px
+			height 16px
+			margin-left 8px
+			transition opacity .4s ease
+			opacity 1
+			svg
+				width 16px
+				height 16px
+				fill $white
+			&:hover
+				opacity .75
+		&:last-child
+			margin-bottom 0
+		&.btc
+			color $btc
+			button
+				svg
+					fill $btc
+		&.eth
+			color $eth
+			button
+				svg
+					fill $eth
+		&.bnb
+			color $bnb
+			button
+				svg
+					fill $bnb
+		&.sol
+			color $sol
+			button
+				svg
+					fill $sol
+		&.xrp
+			color $xrp
+			button
+				svg
+					fill $xrp
+		&.ada
+			color $ada
+			button
+				svg
+					fill $ada
+		&.doge
+			color $doge
+			button
+				svg
+					fill $doge
+		&.ltc
+			color $ltc
+			button
+				svg
+					fill $ltc
+	&__price
+		font-family 'Russo One', sans-serif
+		font-size 48px
+		line-height 56px
+		color $white
+		text-align center
+		margin-bottom 10px
+		height 56px
+		span
+			font-size 32px
+		&:last-child
+			margin-bottom 0
+	&__stat
+		display flex
+		flex-direction row
+		justify-content space-between
+		align-items center
+		width 100%
+		max-width 650px
+		height 32px
+		padding 0 24px
+		border-radius 8px
+		span
+			font-size 12px
+			color $white
+			font-weight 700
+			position relative
+			padding-left 18px
+			&:before
+				content ''
+				position absolute
+				top 50%
+				left 0
+				width 4px
+				height 4px
+				border-radius 50%
+				transform translateY(-50%)
+	&.green
+		background linear-gradient(45deg, rgba($bg, .24) 0%, rgba($green, .24) 100%)
+		.apioption__stat
+			background linear-gradient(45deg, rgba($green, .08) 0%, rgba(#0E121D, .08) 50%, rgba($green, .08) 100%)
+			span
+				&:before
+					background-color $green
+	&.red
+		background linear-gradient(45deg, rgba($bg, .24) 0%, rgba($red, .24) 100%)
+		.apioption__stat
+			background linear-gradient(45deg, rgba($red, .08) 0%, rgba(#0E121D, .08) 50%, rgba($red, .08) 100%)
+			span
+				&:before
+					background-color $red
+	&.orange
+		background linear-gradient(45deg, rgba($bg, .24) 0%, rgba($forex, .24) 100%)
+		.apioption__stat
+			background linear-gradient(45deg, rgba($forex, .08) 0%, rgba(#0E121D, .08) 50%, rgba($forex, .08) 100%)
+			span
+				&:before
+					background-color $forex
+	@media (min-width: 768px)
+		padding 0 30px
+		&__head
+			margin-bottom 48px
+		&__coin
+			font-size 20px
+			line-height 30px
+			img
+				width 30px
+				height 30px
+			button
+				width 24px
+				height 24px
+				svg
+					width 24px
+					height 24px
+		&__price
+			font-size 64px
+			line-height 70px
+			height 70px
+			span
+				font-size 40px
+		&__stat
+			height 60px
+			padding 0 32px
+			span
+				font-size 16px
+				&:before
+					width 8px
+					height 8px
+
+/*==============================
+	Outcome
+==============================*/
+.outcome
+	display flex
+	flex-direction column
+	justify-content center
+	align-items center
+	width 100%
+	height 100%
+	&__zone
+		position relative
+		z-index 1
+		display flex
+		flex-direction row
+		justify-content flex-start
+		align-items center
+		width 100%
+		height 50%
+		padding 0 20px
+		img
+			position absolute
+			width 60px
+			height auto
+			top 50%
+			left 50%
+			transform translate(-50%, -50%)
+			pointer-events none
+			z-index 1
+		&:before
+			content ''
+			display block
+			position absolute
+			width 4px
+			right 20px
+			z-index 1
+		&:after
+			font-family 'Russo One', sans-serif
+			content ''
+			position absolute
+			right 20px
+			z-index 1
+			text-transform uppercase
+			font-size 12px
+			line-height 16px
+		&--win
+			background linear-gradient(90deg, rgba(#66D535, 0) 0%, rgba(#66D535, .24) 100%)
+			.outcome__odds
+				color $green
+				svg
+					fill $green
+			&:before
+				background-color $green
+				border-radius 4px 4px 0 0
+				top 30px
+				bottom 0
+			&:after
+				content 'up'
+				color $green
+				top 10px
+		&--lose
+			background linear-gradient(90deg, rgba(#E32322, 0) 0%, rgba(#E32322, .24) 100%)
+			.outcome__odds
+				color $red
+				svg
+					fill $red
+			&:before
+				background-color $red
+				border-radius 0 0 4px 4px
+				top 0
+				bottom 30px
+			&:after
+				content 'down'
+				color $red
+				bottom 10px
+	&__odds
+		display inline-flex
+		flex-direction row
+		justify-content flex-start
+		align-items center
+		width auto
+		font-size 14px
+		font-weight 800
+		line-height 24px
+		svg
+			width 10px
+			height 10px
+			margin-left 8px
+	&__total
+		position absolute
+		z-index 2
+		left 20px
+		right 20px
+		top 30px
+		display flex
+		flex-direction column
+		justify-content center
+		align-items center
+		small
+			font-size 14px
+			line-height 18px
+			font-weight 600
+			color $green
+			text-align center
+			margin-bottom 8px
+		p
+			font-family 'Russo One', sans-serif
+			font-size 32px
+			line-height 42px
+			color $green
+			text-align center
+			margin-bottom 0
+			span
+				font-size 20px
+	&__locked
+	&__locked2
+		position absolute
+		z-index 2
+		left 20px
+		right 20px
+		display flex
+		flex-direction column
+		justify-content flex-start
+		align-items flex-start
+		top 50%
+		transform translateY(-50%)
+		&:before
+			content ''
+			position absolute
+			display block
+			left 0
+			right 0
+			height 4px
+			top 50%
+			transform translateY(-2px)
+		small
+			font-size 12px
+			line-height 20px
+			margin-bottom 5px
+			font-weight 700
+		p
+			font-family 'Russo One', sans-serif
+			font-size 18px
+			line-height 20px
+			margin-bottom 0
+			margin-top 5px
+			span
+				font-size 14px
+		&.btc
+			small
+			p
+				color $btc
+			&:before
+				background-color $btc
+		&.eth
+			small
+			p
+				color $eth
+			&:before
+				background-color $eth
+		&.bnb
+			small
+			p
+				color $bnb
+			&:before
+				background-color $bnb
+		&.sol
+			small
+			p
+				color $sol
+			&:before
+				background-color $sol
+		&.xrp
+			small
+			p
+				color $xrp
+			&:before
+				background-color $xrp
+		&.ada
+			small
+			p
+				color $ada
+			&:before
+				background-color $ada
+		&.doge
+			small
+			p
+				color $doge
+			&:before
+				background-color $doge
+		&.ltc
+			small
+			p
+				color $ltc
+			&:before
+				background-color $ltc
+		&.red
+			small
+			p
+				color $red
+			&:before
+				background-color $red
+	&__locked2
+		justify-content flex-start
+		align-items flex-end
+		right 40px
+		&:before
+			display none
+	&__value
+		position absolute
+		z-index 3
+		right 6px
+		display inline-flex
+		flex-direction row
+		justify-content flex-end
+		align-items center
+		img
+			width 32px
+			height 32px
+			border-radius 50%
+			border 4px solid $bg
+		&:before
+			content ''
+			position absolute
+			display block
+			height 4px
+			left 0
+			right 20px
+			top 50%
+			transform translateY(-50%)
+			z-index -1
+		&.win
+			bottom calc(50% + 20px)
+			.outcome__price
+				background-color $green
+			&:before
+				background-color $green
+		&.lose
+			top calc(50% + 20px)
+			.outcome__price
+				background-color $red
+			&:before
+				background-color $red
+	&__price
+		height 40px
+		padding 0 10px
+		margin-right 20px
+		border-radius 8px
+		font-family 'Russo One', sans-serif
+		font-size 20px
+		line-height 40px
+		color $bg
+		span
+			font-size 14px
+	&--details
+		.outcome__zone
+			&--win
+				&:after
+					content 'Long'
+			&--lose
+				&:after
+					content 'Short'
+		.outcome__value
+			&.win
+				bottom calc(50% + 40px)
+			&.lose
+				top calc(50% + 40px)
+	@media (min-width: 768px)
+		&__zone
+			padding 0 30px
+			img
+				width 140px
+			&:before
+				width 6px
+				right 30px
+			&:after
+				font-size 16px
+				right 30px
+			&--win
+				&:before
+					border-radius 8px 8px 0 0
+					top 40px
+				&:after
+					top 15px
+			&--lose
+				&:before
+					border-radius 0 0 8px 8px
+					bottom 40px
+				&:after
+					bottom 15px
+		&__odds
+			font-size 24px
+			svg
+				width 18px
+				height 18px
+		&__locked
+			left 30px
+			right 30px
+			&:before
+				height 6px
+				transform translateY(-3px)
+			small
+				font-size 16px
+				line-height 24px
+				margin-bottom 8px
+			p
+				font-size 24px
+				line-height 24px
+				margin-top 8px
+				span
+					font-size 14px
+		&__value
+			right 8px
+			img
+				width 48px
+				height 48px
+			&:before
+				height 6px
+			&.win
+				bottom calc(50% + 40px)
+			&.lose
+				top calc(50% + 40px)
+		&__price
+			height 60px
+			line-height 60px
+			font-size 32px
+			span
+				font-size 20px
+		&--details
+			.outcome__zone
+				padding 0 20px
+				&:before
+					width 4px
+					right 20px
+				&:after
+					font-size 12px
+					right 16px
+				&--win
+					&:before
+						border-radius 4px 4px 0 0
+						top 30px
+					&:after
+						top 10px
+				&--lose
+					&:before
+						border-radius 0 0 4px 4px
+						bottom 30px
+					&:after
+						bottom 10px
+			.outcome__odds
+				font-size 14px
+				svg
+					width 10px
+					height 10px
+			.outcome__locked
+				left 20px
+				right 20px
+				&:before
+					height 4px
+					transform translateY(-2px)
+				small
+					font-size 11px
+					line-height 20px
+					margin-bottom 5px
+				p
+					font-size 18px
+					line-height 20px
+					margin-top 5px
+					span
+						font-size 14px
+			.outcome__value
+				right 6px
+				img
+					width 32px
+					height 32px
+				&:before
+					height 4px
+				&.win
+					bottom calc(50% + 40px)
+				&.lose
+					top calc(50% + 40px)
+			.outcome__price
+				height 40px
+				line-height 40px
+				font-size 20px
+				span
+					font-size 14px
+	@media (min-width: 1200px)
+		&__total
+			top 36px
+
+/*==============================
+	Finished
+==============================*/
+.finished
+	display flex
+	flex-direction column
+	justify-content center
+	align-items center
+	width 100%
+	min-height calc(100dvh - 72px)
+	&__grid
+		display grid
+		gap 16px
+		width 100%
+		max-width 1320px
+		position relative
+		grid-template-columns repeat(1, 1fr)
+	@media (min-width: 768px)
+		min-height calc(100dvh - 108px)
+		&__grid
+			grid-template-columns repeat(2, 1fr)
+			gap 24px
+	@media (min-width: 1200px)
+		position absolute
+		top 0
+		left 0
+		min-height 100%
+		height 100%
+		&__grid
+			grid-template-columns repeat(3, 1fr)
+	@media (min-width: 1400px)
+		&__grid
+			gap 32px
+	@media (min-width: 1900px)
+		&__grid
+			gap 60px
+
+.nobets
+	display flex
+	flex-direction column
+	justify-content center
+	align-items center
+	width 100%
+	height 240px
+	background-color rgba($grey, .24)
+	border 2px solid rgba($white, .24)
+	border-radius 16px
+	p
+		font-size 24px
+		font-weight 800
+		color $white
+		margin-bottom 0
+
+.locked
+	display flex
+	flex-direction column
+	justify-content center
+	align-items center
+	width 100%
+	height 240px
+	border 2px solid transparent
+	border-radius 16px
+	&__coin
+		width 36px
+		height 36px
+	&__text
+		font-size 16px
+		font-weight 600
+		line-height 24px
+		color $white
+	&__value
+		font-family 'Russo One', sans-serif
+		font-size 48px
+		line-height 60px
+		color $white
+		span
+			font-size 28px
+	&.btc
+		border-color $btc
+		.locked__text
+			color $btc
+	&.eth
+		border-color $eth
+		.locked__text
+			color $eth
+	&.bnb
+		border-color $bnb
+		.locked__text
+			color $bnb
+	&.sol
+		border-color $sol
+		.locked__text
+			color $sol
+	&.xrp
+		border-color $xrp
+		.locked__text
+			color $xrp
+	&.ada
+		border-color $ada
+		.locked__text
+			color $ada
+	&.doge
+		border-color $doge
+		.locked__text
+			color $doge
+	&.ltc
+		border-color $ltc
+		.locked__text
+			color $ltc
+
+.final
+	display flex
+	flex-direction column
+	justify-content center
+	align-items center
+	width 100%
+	height 240px
+	border-radius 16px
+	padding 0 30px
+	&__text
+		font-size 16px
+		line-height 24px
+		font-weight 600
+		color $bg
+	&__value
+		font-family 'Russo One', sans-serif
+		font-size 48px
+		line-height 60px
+		color $bg
+		span
+			font-size 28px
+	&__result
+		display flex
+		flex-direction row
+		justify-content space-between
+		align-items center
+		width 100%
+		height 50px
+		padding 0 10px
+		border-radius 4px
+		background-color rgba($bg, .24)
+		margin-top 30px
+		small
+			font-family 'Russo One', sans-serif
+			font-size 24px
+			color $bg
+			text-transform uppercase
+		p
+			font-family 'Russo One', sans-serif
+			font-size 24px
+			line-height 30px
+			color $white
+			margin-bottom 0
+			span
+				font-size 16px
+	&.green
+		background-color $green
+	&.red
+		background-color $red
+
+.victory
+	display flex
+	flex-direction column
+	justify-content center
+	align-items center
+	width 100%
+	height 240px
+	border-radius 16px
+	background-color $blue
+	border 2px solid $white
+	&__text
+		display flex
+		flex-direction row
+		justify-content center
+		align-items center
+		margin-bottom 10px
+		img
+			width 26px
+			height 26px
+			margin-right 8px
+		span
+			font-size 20px
+			font-weight 600
+			line-height 26px
+			color $white
+	&__value
+		font-family 'Russo One', sans-serif
+		font-size 64px
+		line-height 80px
+		color $white
+		margin-bottom 10px
+		span
+			font-size 40px
+	&__odds
+		display flex
+		flex-direction row
+		justify-content center
+		align-items center
+		span
+			font-size 18px
+			font-weight 800
+			margin-right 8px
+		svg
+			width 14px
+			height 14px
+		&.up
+			span
+				color $green
+			svg
+				fill $green
+		&.down
+			span
+				color $red
+			svg
+				fill $red
+				transform rotate(180deg)
+
+.lost
+	display flex
+	flex-direction column
+	justify-content center
+	align-items center
+	width 100%
+	height 240px
+	background-color rgba($grey, .24)
+	border 2px solid rgba($white, .24)
+	border-radius 16px
+	&__text
+		font-size 20px
+		line-height 24px
+		font-weight 600
+		color $white
+		text-align center
+		margin-bottom 24px
+	&__img
+		width 84px
+		height 84px
+		margin-bottom 24px
+	&__counter
+		font-size 16px
+		font-weight 700
+		line-height 24px
+		color $grey
+		text-align center
+
+/*==============================
+	Games
+==============================*/
+.games
+	position relative
+	background url('../img/loader.png')
+	display flex
+	flex-direction column
+	justify-content center
+	align-items center
+	width 100%
+	min-height 100dvh
+	padding 30px
+	overflow hidden
+	background-color $black
+	&:before
+		content ''
+		position absolute
+		top 0
+		right 0
+		bottom 0
+		left 0
+		z-index 1
+		background url('../img/ebetlab2.svg') no-repeat top center
+		background-size 100% auto
+	&:after
+		content ''
+		position absolute
+		top 0
+		right 0
+		bottom 0
+		left 0
+		z-index 3
+		background linear-gradient(90deg, rgba(#0E121D, 0) 0%, rgba(#0E121D, 1) 100%)
+	&__bg
+		position absolute
+		z-index 2
+		top 0
+		right 0
+		bottom 0
+		left 0
+		opacity .05
+		video
+			position absolute
+			top 50%
+			left 50%
+			min-width 100%
+			min-height 100%
+			transform translate(-50%, -50%)
+			object-fit cover
+	&__grid
+		display grid
+		gap 24px
+		width 100%
+		max-width 1320px
+		position relative
+		z-index 4
+		grid-template-columns repeat(1, 1fr)
+	@media (min-width: 768px)
+		&__grid
+			grid-template-columns repeat(2, 1fr)
+	@media (min-width: 1200px)
+		&__grid
+			grid-template-columns repeat(3, 1fr)
+	@media (min-width: 1400px)
+		&__grid
+			gap 32px
+	@media (min-width: 1900px)
+		&__grid
+			gap 60px
+
+/*==============================
+	Play
+==============================*/
+.play
+	display flex
+	flex-direction column
+	justify-content flex-start
+	align-items center
+	width 100%
+	&__cover
+		display flex
+		flex-direction column
+		justify-content flex-start
+		align-items flex-start
+		position relative
+		width 100%
+		height 200px
+		border-radius 8px
+		padding 24px
+		background url('../img/play.png') no-repeat center / cover
+		overflow hidden
+		&:before
+			content ''
+			position absolute
+			top 0
+			right 0
+			bottom 0
+			left 0
+			z-index 1
+		h2
+			font-size 30px
+			line-height 36px
+			color $white
+			font-weight 800
+			text-transform uppercase
+			margin-bottom 5px
+			position relative
+			z-index 3
+		p
+			font-size 12px
+			line-height 16px
+			font-weight 500
+			color #ADB2C2
+			margin-bottom 0
+			position relative
+			z-index 3
+		a
+			position relative
+			z-index 3
+			display flex
+			flex-direction row
+			justify-content center
+			align-items center
+			width 110px
+			height 38px
+			border-radius 8px
+			color $white
+			font-size 12px
+			font-weight 700
+			margin-top auto
+			text-transform uppercase
+			svg
+				width 16px
+				height 16px
+				margin-right 5px
+		img
+			position absolute
+			z-index 2
+			right 0
+			top 50%
+			transform translateY(-50%)
+			width 180px
+	&__stat
+		display flex
+		flex-direction row
+		justify-content space-between
+		align-items center
+		width 100%
+		height 32px
+		padding 0 24px
+		border-radius 8px
+		margin-top 20px
+		span
+			font-size 12px
+			color $white
+			font-weight 700
+			position relative
+			padding-left 18px
+			&:before
+				content ''
+				position absolute
+				top 50%
+				left 0
+				width 4px
+				height 4px
+				border-radius 50%
+				transform translateY(-50%)
+	&__title
+	&__text
+		display none
+	&.green
+		.play__cover
+			&:before
+				background linear-gradient(45deg, rgba(#66D535, 0) 0%, rgba(#66D535, 1) 100%)
+			a
+				background-color #66D535
+				&:hover
+					background-color rgba(#66D535, .8)
+		.play__stat
+			background linear-gradient(45deg, rgba(#66D535, .08) 0%, rgba(#0E121D, .08) 50%, rgba(#66D535, .08) 100%)
+			span
+				&:before
+					background-color #66D535
+	&.blue
+		.play__cover
+			&:before
+				background linear-gradient(45deg, rgba(#0F5EFF, 0) 0%, rgba(#0F5EFF, 1) 100%)
+			a
+				background-color #0F5EFF
+				&:hover
+					background-color rgba(#0F5EFF, .8)
+		.play__stat
+			background linear-gradient(45deg, rgba(#0F5EFF, .08) 0%, rgba(#0E121D, .08) 50%, rgba(#0F5EFF, .08) 100%)
+			span
+				&:before
+					background-color #0F5EFF
+	&.yellow
+		.play__cover
+			&:before
+				background linear-gradient(45deg, rgba(#FBA61E, 0) 0%, rgba(#FBA61E, 1) 100%)
+			a
+				background-color #FBA61E
+				&:hover
+					background-color rgba(#FBA61E, .8)
+		.play__stat
+			background linear-gradient(45deg, rgba(#FBA61E, .08) 0%, rgba(#0E121D, .08) 50%, rgba(#FBA61E, .08) 100%)
+			span
+				&:before
+					background-color #FBA61E
+	@media (min-width: 768px)
+		&__cover
+			height 240px
+			padding 30px
+			h2
+				font-size 36px
+				line-height 40px
+			p
+				font-size 14px
+			a
+				width 120px
+				height 42px
+			img
+				width 224px
+		&__stat
+			height 40px
+			margin-top 24px
+			padding 0 30px
+		&__title
+			display block
+			width 100%
+			font-size 24px
+			font-weight 700
+			color $white
+			text-align center
+			margin-top 24px
+			margin-bottom 12px
+		&__text
+			display block
+			font-size 14px
+			line-height 24px
+			font-weight 500
+			color $grey
+			text-align center
+			width 100%
+			padding 0 40px
+			margin-bottom 0
+
+/*==============================
+	Ticker
+==============================*/
+.ticker
+	position relative
+	width 100%
+	padding 24px 0
+	display flex
+	flex-direction column
+	justify-content flex-start
+	align-items flex-start
+	&__title
+		font-size 16px
+		font-weight 700
+		color $white
+		line-height 24px
+		margin-bottom 16px
+	&__content
+		width 100%
+	&__round
+		display flex
+		flex-direction row
+		justify-content center
+		align-items center
+		width 76px
+		height 36px
+		border-radius 8px
+		font-size 16px
+		font-weight 800
+		text-transform uppercase
+		&--down
+			color $red
+			background-color rgba($red, .24)
+		&--up
+			color $green
+			background-color rgba($green, .24)
+	@media (min-width: 768px)
+		padding 30px 0
+
+/*==============================
+	Sidebar
+==============================*/
+.sidebar
+	display none
+	&__tabs
+		width 100%
+		&--htp
+			max-width 1200px
+			margin 0 auto
+	&__tabs-nav
+		display flex
+		flex-direction row
+		justify-content flex-start
+		align-items center
+		width 100%
+		border none
+		margin-bottom 12px
+		&--2
+			li
+				width 50%
+		&--3
+			li
+				width 33.333333%
+		&--htp
+			justify-content center
+			li
+				width 33.333333%
+		button
+			display flex
+			flex-direction row
+			justify-content center
+			align-items center
+			position relative
+			width 100%
+			height 48px
+			border-radius 8px
+			&:before
+				content ''
+				position absolute
+				z-index 1
+				top 0
+				right 0
+				bottom 0
+				left 0
+				background linear-gradient(90deg, rgba(#0E121D, .24) 0%, rgba(#CAD1DD, .24) 100%)
+				border-radius 8px
+				opacity 0
+				transition opacity .4s ease
+			&:after
+				content ''
+				position absolute
+				z-index 2
+				top 2px
+				right 2px
+				bottom 2px
+				left 2px
+				background-color #1A212E
+				border-radius 6px
+				opacity 0
+				transition opacity .4s ease
+			span
+				position relative
+				z-index 3
+				font-size 14px
+				font-weight 500
+				color $white
+			&.active
+				background-color #1A212E
+				&:before
+				&:after
+					opacity 1
+	&__content
+		display flex
+		flex-direction column
+		justify-content flex-start
+		align-items flex-start
+		width 100%
+	&--htp
+		display flex
+		flex-direction column
+		justify-content flex-start
+		align-items flex-start
+		height auto
+		margin 24px 0
+	@media (min-width: 768px)
+		&__tabs-nav
+			&--htp
+				margin-bottom 24px
+	@media (min-width: 1200px)
+		display flex
+		flex-direction column
+		justify-content flex-start
+		align-items flex-start
+		height 100%
+		padding-bottom 48px
+		padding-top 100px
+		&__tabs-nav
+			&--htp
+				justify-content flex-start
+				padding-left 424px
+				li
+					width 160px
+		&--pt0
+			padding-top 0
+		&--htp
+			padding-top 0
+			padding-bottom 0
+	@media (min-width: 1400px)
+		&__tabs-nav
+			button
+				span
+					font-size 16px
+
+/*==============================
+	HTP
+==============================*/
+.htp
+	display flex
+	flex-direction column
+	justify-content flex-start
+	align-items center
+	height 100%
+	margin-top 24px
+	&__tag
+		font-size 12px
+		line-height 14px
+		color $grey
+		text-align center
+		margin-bottom 4px
+	&__title
+		font-size 24px
+		line-height 36px
+		font-weight 700
+		text-align center
+		color $white
+		margin-bottom 0
+		position relative
+		&:before
+		&:after
+			content ''
+			position absolute
+			top 0
+			bottom 0
+			width 50px
+			display block
+		&:before
+			right 100%
+			margin-right 20px
+			background url('../img/htp/htp.svg') no-repeat left center
+			background-size 50px auto
+		&:after
+			left 100%
+			margin-left 20px
+			background url('../img/htp/htp2.svg') no-repeat right center
+			background-size 50px auto
+	&__content
+		display flex
+		flex-direction column
+		justify-content flex-start
+		align-items flex-start
+		height 100%
+	&__img
+		position relative
+		width 100%
+		img
+			position absolute
+			width 100%
+			opacity 0
+			top 0
+			left 0
+			transition opacity .4s ease
+			&:first-child
+				position relative
+			&.active
+				opacity 1
+	&__tabs
+		width 100%
+		position relative
+	&__tab
+		display flex
+		flex-direction row
+		justify-content flex-start
+		align-items center
+		position relative
+		height 100%
+		padding 16px
+		border-radius 8px
+		background linear-gradient(90deg, rgba(#0E121D, .24) 0%, rgba(#CAD1DD, .24) 100%)
+		border 1px solid #424F66
+		margin-top 12px
+		p
+			font-size 14px
+			line-height 24px
+			font-weight 500
+			color $grey
+			margin-bottom 0
+			width calc(100% - 48px)
+			margin-left 0
+			transition .4s ease
+			transition-property color, margin-left
+			b
+				font-weight 500
+		span
+			display flex
+			flex-direction row
+			justify-content center
+			align-items center
+			position absolute
+			width 32px
+			height 32px
+			border-radius 50%
+			background-color $grey
+			border 2px solid rgba(#CAD1DD, .24)
+			font-size 16px
+			color $white
+			font-weight 800
+			flex-shrink 0
+			top 50%
+			transform translateY(-50%)
+			left calc(100% - 48px)
+			opacity 1
+		&.active
+			p
+				margin-left 48px
+				color $white
+			span
+				left 16px
+				animation showAgain 1s ease forwards
+		&.green
+			&.active
+				p
+					b
+						color $green
+				span
+					background-color $green
+					border-color $green
+		&.blue
+			&.active
+				p
+					b
+						color $blue
+				span
+					background-color $blue
+					border-color $blue
+		&.green
+			&.active
+				p
+					b
+						color $green
+				span
+					background-color $green
+					border-color $green
+		&.orange
+			&.active
+				p
+					b
+						color $forex
+				span
+					background-color $forex
+					border-color $forex
+	@media (min-width: 768px)
+		&__tag
+			font-size 14px
+		&__title
+			font-size 36px
+			line-height 50px
+			&:before
+			&:after
+				width 70px
+				background-size 70px auto
+			&:before
+				margin-right 30px
+			&:after
+				margin-left 30px
+		&__content
+			flex-direction row
+		&__img
+			width 280px
+			margin-right 24px
+		&__tabs
+			width calc(100% - 304px)
+		&__tab
+			p
+				font-size 16px
+			&:first-child
+				margin-top 0
+	@media (min-width: 1200px)
+		&__img
+			width 400px
+			margin-top -72px
+		&__tabs
+			width calc(100% - 424px)
+		&__tab
+			padding 24px
+			p
+				width calc(100% - 52px)
+			span
+				width 36px
+				height 36px
+				left calc(100% - 52px)
+
+@keyframes showAgain
+	from
+		opacity 0
+	to
+		opacity 1
+
+/*==============================
+	Apigame
+==============================*/
+.apigame
+	display flex
+	flex-direction column
+	justify-content flex-start
+	align-items flex-start
+	position relative
+	width 100%
+	padding 16px 0
+	&__title
+		display none
+	&__group
+		display flex
+		flex-direction column
+		justify-content flex-start
+		align-items flex-start
+		position relative
+		width 100%
+		margin-bottom 10px
+		&--row
+			flex-direction row
+			gap 0 16px
+		&--border
+			border-top 1px solid rgba($grey, .24)
+			margin-top 10px
+			padding-top 10px
+		&:last-child
+			margin-bottom 0
+	&__label
+		font-size 12px
+		line-height 16px
+		height 16px
+		color $grey
+		font-weight 600
+		margin-bottom 8px
+		b
+			font-weight 600
+			color $red
+	&__btns
+		display flex
+		flex-direction row
+		justify-content space-between
+		align-items center
+		width 100%
+		background-color rgba($grey, .24)
+		padding 4px
+		border-radius 8px
+	&__btn
+		display flex
+		flex-direction row
+		justify-content center
+		align-items center
+		width 50%
+		height 48px
+		border-radius 6px
+		background-color transparent
+		span
+			color $grey
+			font-size 18px
+			font-weight 800
+			text-transform uppercase
+			margin-right 12px
+			transition color .4s ease
+			&:last-child
+				margin-right 0
+		svg
+			width 14px
+			fill $grey
+		&.green
+			span
+				color $green
+			svg
+				fill $green
+			&.active
+				background-color $green
+		&.red
+			span
+				color $red
+			svg
+				fill $red
+			&.active
+				background-color $red
+		&.active
+			span
+				color $white
+			svg
+				fill $white
+	&__wager
+		display flex
+		flex-direction row
+		justify-content space-between
+		align-items center
+		position relative
+		width 100%
+		height 48px
+		background-color rgba($grey, .24)
+		border-radius 8px
+		overflow hidden
+	&__wager-inpit
+		position relative
+		width calc(50% - 8px)
+		padding 0 10px
+		input
+			position relative
+			z-index 1
+			width 100%
+			height 48px
+			background-color transparent
+			border-radius 8px
+			border none
+			padding 0
+			font-family 'Russo One', sans-serif
+			color $white
+			font-size 16px
+			font-weight normal
+			text-align center
+		button
+			position absolute
+			z-index 2
+			top 0
+			display flex
+			flex-direction row
+			justify-content center
+			align-items center
+			width 20px
+			height 48px
+			svg
+				width 20px
+				height 20px
+				fill $grey
+			&:first-child
+				left 10px
+			&:last-child
+				right 10px
+			&:hover
+				svg
+					fill $white
+	&__wager-actions
+		display flex
+		flex-direction row
+		justify-content center
+		align-items center
+		width calc(50% - 8px)
+		padding 0 10px
+		button
+			display flex
+			flex-direction row
+			justify-content center
+			align-items center
+			width auto
+			height 32px
+			font-size 14px
+			font-weight 600
+			color $grey
+			margin 0 8px
+			&:hover
+				color $white
+	&__double
+		display flex
+		flex-direction column
+		justify-content flex-start
+		align-items flex-start
+		width 50%
+	&__liquidity
+		display flex
+		flex-direction column
+		justify-content center
+		align-items center
+		width 100%
+		height 48px
+		background-color rgba($grey, .24)
+		border-radius 8px
+		overflow hidden
+		p
+			font-family 'Russo One', sans-serif
+			font-size 20px
+			text-align center
+			margin-bottom 0
+			color $white
+			span
+				font-size 14px
+		&.green
+			p
+				color $green
+		&.red
+			p
+				color $red
+	&__multiplier
+		display flex
+		flex-direction column
+		justify-content center
+		align-items center
+		width 100%
+		height 48px
+		background-color rgba($grey, .24)
+		border-radius 8px
+		overflow hidden
+		input
+			width 100%
+			background-color transparent
+			height 48px
+			border none
+			font-family 'Russo One', sans-serif
+			font-size 20px
+			color $white
+			text-align center
+	&__range
+		display flex
+		flex-direction row
+		justify-content space-between
+		align-items center
+		width 100%
+		margin-top 12px
+		margin-bottom 12px
+		span
+			font-size 12px
+			color $white
+			font-weight 600
+			position relative
+			padding-left 12px
+			&:first-child
+				b
+					font-weight 600
+					color $green
+				&:before
+					background-color $green
+			&:last-child
+				b
+					font-weight 600
+					color $red
+				&:before
+					background-color $red
+			&:before
+				content ''
+				position absolute
+				top 50%
+				left 0
+				width 4px
+				height 4px
+				border-radius 50%
+				background-color $white
+	&__bet
+		display flex
+		flex-direction row
+		justify-content center
+		align-items center
+		position relative
+		width 100%
+		height 48px
+		margin-bottom 10px
+		button
+			display flex
+			flex-direction row
+			justify-content center
+			align-items center
+			position absolute
+			top 0
+			left 0
+			width 100%
+			height 48px
+			border-radius 8px
+			background-color transparent
+			transition .4s ease
+			opacity 0
+			pointer-events none
+			span
+				color $white
+				font-size 18px
+				font-weight 800
+				text-transform uppercase
+				margin-right 12px
+				&:last-child
+					margin-right 0
+			svg
+				width 14px
+				fill $white
+			&:hover
+				opacity .75 !important
+		&.green
+			button
+				background-color $green
+				&:first-child
+					opacity 1
+					pointer-events auto
+		&.red
+			button
+				background-color $red
+				&:last-child
+					opacity 1
+					pointer-events auto
+		&:last-child
+			margin-bottom 0
+	&__bets
+		display none
+		flex-direction row
+		justify-content space-between
+		align-items center
+		width 100%
+		gap 0 16px
+		button
+			display flex
+			flex-direction row
+			justify-content space-between
+			align-items center
+			width 100%
+			height 48px
+			padding 0 20px
+			background-color rgba($grey, .24)
+			border-radius 8px
+			font-size 12px
+			font-weight 800
+			span
+				display flex
+				flex-direction row
+				justify-content center
+				align-items center
+				width 20px
+				height 20px
+				border-radius 50%
+				font-size 10px
+				color $black
+				transition .4s ease
+			&.green
+				color $green
+				span
+					background-color $green
+				&:hover
+					background-color $green
+					color $black
+					span
+						background-color $white
+			&.red
+				color $red
+				span
+					background-color $red
+				&:hover
+					background-color $red
+					color $black
+					span
+						background-color $white
+		&.mob
+			display flex
+	@media (min-width: 768px)
+		padding 24px 0
+		&__group
+			margin-bottom 24px
+			&:last-child
+				margin-bottom 0
+			&--border
+				margin-top 0
+				padding-top 24px
+		&__label
+			margin-bottom 12px
+		&__btn
+		&__wager
+		&__liquidity
+			height 60px
+		&__wager-inpit
+			button
+			input
+				height 60px
+		&__multiplier
+			height 60px
+			input
+				height 60px
+		&__bet
+			height 60px
+			margin-bottom 24px
+			button
+				height 60px
+			&:last-child
+				margin-bottom 0
+		&__bets
+			button
+				height 60px
+				font-size 16px
+				span
+					width 24px
+					height 24px
+					font-size 12px
+	@media (min-width: 1200px)
+		padding 0 0 32px
+		&__title
+			display block
+			font-size 24px
+			line-height 32px
+			font-weight 700
+			color $white
+			margin-bottom 24px
+		&__bets
+			flex-direction column
+			gap 16px 0
+			&.mob
+				display none
+			&.desk
+				display flex
+
+/*==============================
+	Xtable
+==============================*/
+.xtable
+	display flex
+	flex-direction column
+	justify-content flex-start
+	align-items flex-start
+	width 100%
+	&__title
+		display flex
+		flex-direction row
+		justify-content space-between
+		align-items center
+		width 100%
+		height 40px
+		padding 0 8px
+		margin-bottom 4px
+		span
+			font-size 16px
+			font-weight 800
+			color $white
+	&__content
+		display flex
+		flex-direction column
+		justify-content flex-start
+		align-items flex-start
+		width 100%
+		gap 4px 0
+		margin-bottom 4px
+		&:last-child
+			margin-bottom 0
+
+/*==============================
+	Pair
+==============================*/
+.pair
+	display flex
+	flex-direction row
+	justify-content space-between
+	align-items center
+	width 100%
+	height 56px
+	padding 0 8px
+	border-radius 8px
+	border 1px solid transparent
+	position relative
+	&:before
+		content ''
+		position absolute
+		z-index 1
+		top 0
+		right 0
+		bottom 0
+		left 0
+		background linear-gradient(90deg, rgba(#0E121D, .24) 0%, rgba(#CAD1DD, .24) 100%)
+		border 1px solid #424F66
+		border-radius 8px
+		opacity 1
+		transition opacity .4s ease
+	&:after
+		content ''
+		position absolute
+		z-index 2
+		top 0
+		right 0
+		bottom 0
+		left 0
+		border-radius 8px
+		border 1px solid transparent
+		opacity 0
+		transition opacity .4s ease
+	&.btc
+		&:after
+			background linear-gradient(90deg, rgba($btc, .24) 0%, rgba($bg, 0) 100%)
+			border-color rgba($btc, .24)
+	&.eth
+		&:after
+			background linear-gradient(90deg, rgba($eth, .24) 0%, rgba($bg, 0) 100%)
+			border-color rgba($eth, .24)
+	&.bnb
+		&:after
+			background linear-gradient(90deg, rgba($bnb, .24) 0%, rgba($bg, 0) 100%)
+			border-color rgba($bnb, .24)
+	&.sol
+		&:after
+			background linear-gradient(90deg, rgba($sol, .24) 0%, rgba($bg, 0) 100%)
+			border-color rgba($sol, .24)
+	&.xrp
+		&:after
+			background linear-gradient(90deg, rgba($xrp, .24) 0%, rgba($bg, 0) 100%)
+			border-color rgba($xrp, .24)
+	&.ada
+		&:after
+			background linear-gradient(90deg, rgba($ada, .24) 0%, rgba($bg, 0) 100%)
+			border-color rgba($ada, .24)
+	&.doge
+		&:after
+			background linear-gradient(90deg, rgba($doge, .24) 0%, rgba($bg, 0) 100%)
+			border-color rgba($doge, .24)
+	&.ltc
+		&:after
+			background linear-gradient(90deg, rgba($ltc, .24) 0%, rgba($bg, 0) 100%)
+			border-color rgba($ltc, .24)
+	&__coin
+		display flex
+		flex-direction row
+		justify-content flex-start
+		align-items center
+		position relative
+		z-index 3
+		img
+			width 32px
+			height 32px
+			margin-right 4px
+		span
+			display flex
+			flex-direction column
+			justify-content flex-start
+			align-items flex-start
+			margin-right 8px
+			i
+				font-size 18px
+				font-weight 800
+				line-height 20px
+				color $white
+				text-transform uppercase
+				font-style normal
+			small
+				font-size 12px
+				line-height 12px
+				font-weight 600
+				color #bbbbbb
+	&__price
+		font-family 'Russo One', sans-serif
+		font-size 20px
+		color $white
+		span
+			font-size 12px
+	&.active
+		&:before
+			opacity 0
+		&:after
+			opacity 1
+	&:hover
+		&:before
+			opacity 0
+		&:after
+			opacity 1
+
+/*==============================
+	User
+==============================*/
+.user
+	display flex
+	flex-direction row
+	justify-content space-between
+	align-items center
+	width 100%
+	height 56px
+	padding 0 8px
+	border-radius 8px
+	border 1px solid transparent
+	position relative
+	&__meta
+		display flex
+		flex-direction row
+		justify-content flex-start
+		align-items center
+		position relative
+		z-index 3
+		img
+			width 32px
+			height 32px
+			margin-right 4px
+		span
+			display flex
+			flex-direction column
+			justify-content flex-start
+			align-items flex-start
+			i
+				font-size 18px
+				font-weight 800
+				line-height 20px
+				color $white
+				font-style normal
+			small
+				font-size 12px
+				line-height 12px
+				font-weight 600
+				color #bbbbbb
+	&__price
+		font-family 'Russo One', sans-serif
+		font-size 20px
+		color $white
+		span
+			font-size 12px
+	&.up
+		background linear-gradient(90deg, rgba(#0E121D, .24) 0%, rgba(#66D535, .24) 100%)
+		border 1px solid #66D535
+	&.down
+		background linear-gradient(90deg, rgba(#0E121D, .24) 0%, rgba(#E32322, .24) 100%)
+		border 1px solid #E32322
+
+/*==============================
+	Result
+==============================*/
+.result
+	display flex
+	flex-direction row
+	justify-content flex-start
+	align-items center
+	width 100%
+	height 56px
+	&__bar
+		display flex
+		flex-direction row
+		justify-content center
+		align-items center
+		height 56px
+		&:first-child
+			border-radius 8px 0 0 8px
+		&:last-child
+			border-radius 0 8px 8px 0
+		img
+			height 36px
+			width auto
+		span
+			font-size 24px
+			font-weight 800
+			line-height 36px
+			margin-right 8px
+		&--down
+			background-color rgba($red, .24)
+			span
+				color $red
+		&--up
+			background-color rgba($green, .24)
+			span
+				color $green
+
+/*==============================
+	Btable
+==============================*/
+.btable
+	display flex
+	flex-direction column
+	justify-content flex-start
+	align-items flex-start
+	width 100%
+	margin-top 24px
+	max-height 300px
+	height auto
+	overflow-y auto
+	padding-right 8px
+	&::-webkit-scrollbar
+		width 4px
+		height 4px
+	&::-webkit-scrollbar-button
+		display none
+	&::-webkit-scrollbar-thumb
+		background rgba($grey, .5)
+		outline 0 solid $white
+		border-radius 4px
+	&::-webkit-scrollbar-thumb:hover
+		background $grey
+	&::-webkit-scrollbar-track
+		background $bg2
+		border-radius 4px
+	&__item
+		display flex
+		flex-direction column
+		justify-content flex-start
+		align-items flex-start
+		width 100%
+		position relative
+		padding-bottom 16px
+		margin-bottom 16px
+		border-bottom 1px solid rgba($grey, .24)
+		&:last-child
+			margin-bottom 0
+			border-bottom none
+	&__row
+		display flex
+		flex-direction row
+		justify-content flex-start
+		align-items flex-end
+		width 100%
+	&__col
+		display flex
+		flex-direction column
+		justify-content flex-end
+		align-items flex-start
+		width 26.666666%
+		&.tablet
+			display none
+		&:last-child
+			width 20%
+	&__name
+		font-size 12px
+		font-weight 600
+		line-height 14px
+		color $grey
+		width 100%
+		margin-bottom 8px
+	&__btns
+		display flex
+		flex-direction row
+		justify-content flex-end
+		align-items center
+		width 100%
+		gap 0 20px
+	&__btn
+		display flex
+		flex-direction row
+		justify-content center
+		align-items center
+		width 20px
+		height 20px
+		svg
+			width 20px
+			height 20px
+			fill $grey
+	&__coin
+		display flex
+		flex-direction row
+		justify-content flex-start
+		align-items center
+		position relative
+		z-index 3
+		img
+			width 24px
+			height 24px
+			margin-right 4px
+		span
+			display flex
+			flex-direction column
+			justify-content flex-start
+			align-items flex-start
+			i
+				font-size 14px
+				font-weight 800
+				line-height 14px
+				color $white
+				text-transform uppercase
+				font-style normal
+			small
+				display flex
+				flex-direction row
+				justify-content flex-start
+				align-items center
+				width auto
+				font-size 8px
+				line-height 10px
+				height 10px
+				font-weight 600
+				color $grey
+				text-transform uppercase
+				svg
+					width 8px
+					height auto
+					fill $grey
+					margin-right 4px
+		&.up
+			span
+				small
+					color $green
+					svg
+						fill $green
+		&.down
+			span
+				small
+					color $red
+					svg
+						transform rotate(180deg)
+						fill $red
+	&__text
+		font-size 12px
+		font-weight 700
+		color $white
+		line-height 24px
+		&.orange
+			color $forex
+		&.green
+			color $green
+		&.red
+			color $red
+	&__collapse
+		width 100%
+	@media (min-width: 768px)
+		margin-top 48px
+		max-height 600px
+		&__item
+			padding-bottom 24px
+			margin-bottom 24px
+		&__name
+			font-size 14px
+			line-height 20px
+		&__btns
+			gap 0 24px
+		&__btn
+			width 24px
+			height 24px
+			svg
+				width 24px
+				height 24px
+		&__coin
+			img
+				width 36px
+				height 36px
+				margin-right 8px
+			span
+				i
+					font-size 16px
+					line-height 20px
+				small
+					font-size 12px
+					line-height 16px
+					height 16px
+		&__text
+			font-size 16px
+			line-height 36px
+	@media (min-width: 1200px)
+		&__btn
+			&:hover
+				svg
+					fill $white
+		&__col
+			width 18%
+			&:last-child
+				width 10%
+			&.tablet
+				display flex
+
+/*==============================
+	Details
+==============================*/
+.details
+	display flex
+	flex-direction column
+	justify-content center
+	align-items center
+	width 100%
+	background-color $bg2
+	padding 16px
+	border-radius 16px
+	margin-top 16px
+	position relative
+	&__title
+		font-size 12px
+		line-height 16px
+		color $grey
+		font-weight 700
+		margin-bottom 4px
+	&__chart
+		background-color $bg
+		height 240px
+		width 100%
+		margin 8px auto 16px
+	&__info
+		display flex
+		flex-direction column
+		justify-content flex-start
+		align-items flex-start
+		width 100%
+		position relative
+	&__stat
+		display grid
+		gap 16px
+		width 100%
+		position relative
+		grid-template-columns repeat(2, 1fr)
+		.btable__col
+			width 100% !important
+	&__btns
+		display flex
+		flex-direction row
+		justify-content space-between
+		align-items center
+		width 100%
+		margin-top 16px
+	&__btn
+		display flex
+		flex-direction row
+		justify-content center
+		align-items center
+		height 40px
+		border-radius 8px
+		font-size 12px
+		text-transform uppercase
+		font-weight 800
+		text-align center
+		svg
+			width 14px
+			height 14px
+			margin 0 4px
+		&--white
+			width 120px
+			background-color rgba($grey, .24)
+			color $white
+			svg
+				fill $white
+			&:hover
+				background-color rgba($grey, .44)
+		&--green
+			width calc(100% - 136px)
+			background-color rgba($green, .24)
+			color $green
+			svg
+				fill $green
+			&:hover
+				background-color rgba($green, .44)
+	&__copyright
+		display flex
+		flex-direction row
+		justify-content center
+		align-items center
+		width 100%
+		margin-top 16px
+		span
+			font-size 12px
+			line-height 24px
+			color $white
+			font-weight 700
+			margin-right 8px
+		img
+			height 24px
+			width auto
+	@media (min-width: 768px)
+		margin-top 24px
+		padding 24px
+		&__stat
+			grid-template-columns repeat(3, 1fr)
+		&__btns
+			justify-content flex-end
+			gap 0 16px
+			margin-top 24px
+		&__btn
+			height 48px
+			font-size 16px
+			&--white
+				width 160px
+			&--green
+				width 320px
+	@media (min-width: 1200px)
+		padding-left 428px
+		justify-content flex-start
+		align-items flex-start
+		min-height 298px
+		&__copyright
+			display none
+		&__title
+			font-size 16px
+			color $white
+			line-height 24px
+			margin-bottom 24px
+		&__chart
+			width 380px
+			position absolute
+			top 24px
+			left 24px
+			margin 0
+			height 270px
+		&__title
+		&__info
+			width 100%
+		&__stat
+			grid-template-columns repeat(5, 1fr)
+
+/*==============================
+	Form
+==============================*/
+.form
+	&__group
+		display flex
+		flex-direction column
+		justify-content flex-start
+		align-items flex-start
+		position relative
+		width 100%
+		margin-bottom 16px
+		&:last-child
+			margin-bottom 0
+	&__label
+		font-size 14px
+		line-height 20px
+		color $grey
+		font-weight 400
+		white-space nowrap
+		margin-bottom 8px
+	&__input
+		font-size 14px
+		color $white
+		padding 0 20px
+		background-color $bg
+		border none
+		height 46px
+		width 100%
+		border-radius 8px
+	&__switch
+		position relative
+		width 100%
+		min-height 24px
+		overflow hidden
+		margin-bottom 16px
+		&:last-child
+			margin-bottom 0
+		label
+			font-size 14px
+			line-height 24px
+			color $white
+	&__switch-input
+		position absolute
+		cursor pointer
+		opacity 0
+		& + label
+			position relative
+			padding-left 54px
+			cursor pointer
+		& + label:before
+			content ''
+			box-sizing border-box
+			position absolute
+			left 0
+			width 44px
+			height 24px
+			border-radius 12px
+			background-color $bg
+		& + label:after
+			content ''
+			position absolute
+			top 2px
+			left 2px
+			width 20px
+			height 20px
+			margin auto
+			transform translate(0, 0)
+			border-radius 50%
+			background-color rgba($blue, .36)
+			cursor pointer
+			transition .4s ease
+		&:checked + label:after
+			transform translate(20px, 0)
+			background-color $blue
+	&__radio
+		position relative
+		display flex
+		flex-direction column
+		justify-content flex-start
+		align-items flex-start
+		width 100%
+		li
+			position relative
+			overflow hidden
+			margin-bottom 16px
+			&:last-child
+				margin-bottom 0
+		input
+			&:not(:checked)
+			&:checked
+				position absolute
+				left -9999px
+		label
+			display flex
+			flex-direction column
+			justify-content flex-start
+			align-items flex-start
+			width auto
+			margin 0
+			position relative
+			font-weight 400
+			cursor pointer
+			padding-left 30px
+			transition color .4s ease
+			span
+				font-size 14px
+				line-height 24px
+				font-weight 500
+				color $grey
+				transition color .4s ease
+				&:first-child
+					font-size 16px
+				&:nth-child(2)
+					color $grey
+			&:before
+				content ''
+				display block
+				position absolute
+				width 20px
+				height 20px
+				border 5px solid rgba($blue, .36)
+				background-color transparent
+				border-radius 50%
+				left 0
+				top 2px
+				transition border-color .4s ease
+			&:hover
+				span
+					&:first-child
+						color $white
+		input:checked + label
+			span
+				&:first-child
+					color $white
+			&:before
+				border-color $blue
+	&__search
+		width 100%
+		height 56px
+		border 1px solid #424F66
+		text-align center
+		font-size 16px
+		color $white
+		background-color transparent
+		border-radius 8px
+		margin-bottom 12px
+
+/*==============================
+	Sheet
+==============================*/
+.sheet
+	position fixed
+	top 0
+	right 0
+	bottom 0
+	left 0
+	background-color #0B0E17
+	opacity 0
+	transition opacity .4s ease
+	pointer-events none
+	z-index 998
+	&.open
+		opacity .9
+		pointer-events auto
+	@media (min-width: 1200px)
+		display none
+
+.bottom-sheet
+	position fixed
+	left 0
+	right 0
+	bottom -100%
+	background $bg
+	border-top-left-radius 16px
+	border-top-right-radius 16px
+	transition bottom .4s ease
+	z-index 999
+	&.open
+		bottom 0
+	&__handle
+		display flex
+		flex-direction row
+		justify-content center
+		align-items center
+		width 80px
+		height 32px
+		background transparent
+		border 1px solid $grey
+		border-radius 2px 
+		margin 16px auto
+		border-radius 16px
+		span
+			color $grey
+			font-size 12px
+			text-transform uppercase
+			font-weight 700
+			margin-right 2px
+			line-height 24px
+			&:last-child
+				margin-right 0
+		svg
+			width 16px
+			height 16px
+			stroke $grey
+	&__content
+		display flex
+		flex-direction column
+		justify-content flex-start
+		align-items flex-start
+		max-height 90vh
+		overflow-y auto
+		padding 0 12px 12px
+	@media (min-width: 576px)
+		&__content
+			padding-left calc((100vw - 516px)/2)
+			padding-right calc((100vw - 516px)/2)
+	@media (min-width: 1200px)
+		display none
+
+/*==============================
+	Modal
+==============================*/
+.modal
+	.modal-content
+		margin 0 auto
+		max-width 1240px
+		background-color transparent
+		border none
+		border-radius 16px
+	.modal-dialog
+		max-width 1240px
+	&__content
+		position relative
+		display block
+		margin 0 auto
+		width 100%
+		max-width 1240px
+		padding 24px 20px
+		border-radius 16px
+		background $bg
+	&__tabs
+		position relative
+		display block
+		margin 0 auto
+		width 100%
+		max-width 1240px
+		padding 24px 20px
+		border-radius 16px
+		background $bg
+	&__tabs-nav
+		display flex
+		flex-direction row
+		justify-content space-between
+		align-items center
+		width 100%
+		border none
+		li
+			width calc(50% - 8px)
+		button
+			display flex
+			flex-direction row
+			justify-content space-between
+			align-items center
+			width 100%
+			height 48px
+			padding 0 20px
+			background-color rgba($grey, .24)
+			border-radius 8px
+			font-size 12px
+			font-weight 800
+			span
+				display flex
+				flex-direction row
+				justify-content center
+				align-items center
+				width 20px
+				height 20px
+				border-radius 50%
+				font-size 10px
+				color $black
+				transition .4s ease
+			&.green
+				color $green
+				span
+					background-color $green
+				&.active
+				&:hover
+					background-color rgba($green, .24)
+			&.red
+				color $red
+				span
+					background-color $red
+				&.active
+				&:hover
+					background-color rgba($red, .24)
+	&__title
+		font-weight 600
+		color $white
+		font-size 24px
+		line-height 24px
+		margin-bottom 24px
+	&__close
+		display flex
+		flex-direction column
+		justify-content center
+		align-items center
+		position absolute
+		top 24px
+		right 20px
+		width 24px
+		height 24px
+		z-index 1
+		svg
+			width 20px
+			height 20px
+			stroke $grey
+		&:hover
+			svg
+				stroke $white
+	&__steps
+		display flex
+		flex-direction column
+		justify-content flex-start
+		align-items flex-start
+		width 100%
+		list-style decimal
+		margin-bottom 16px
+		padding-left 20px
+		li
+			color $white
+			font-size 16px
+			line-height 24px
+			margin-bottom 12px
+			&:last-child
+				margin-bottom 0
+		&:last-child
+			margin-bottom 0
+	@media (min-width: 768px)
+		&__tabs-nav
+			button
+				height 60px
+				font-size 16px
+				span
+					width 24px
+					height 24px
+					font-size 12px
+	@media (min-width: 1200px)
+		&__tabs-nav
+			justify-content center
+			gap 0 24px
+			li
+				width 350px
+
+.modal-dialog
+	padding-right 4px
+	padding-left 4px
+	@media (min-width: 576px)
+		padding-right 24px
+		padding-left 24px
+	@media (min-width: 768px)
+		padding-right 40px
+		padding-left 40px
+
+.modal-backdrop
+	background rgba(#0B0E17, .9)
+	&.show
+		opacity 1

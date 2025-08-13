@@ -1,0 +1,12 @@
+
+.allrights {
+    position: fixed;
+    bottom: 12px;
+    text-align: center;
+    width: 100%;
+    color: rgba(255, 255, 255, .1);
+}
+.allrights a{
+    color: rgba(255, 255, 255, .3);
+
+}

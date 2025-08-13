@@ -1,0 +1,12 @@
+import * as React from "react"
+
+const HsbcSvg = (props) => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 56 56">
+        <path fill="#F0F3FA" d="M0 0h56v56H0z"/>
+        <path d="M39.999 39.996H16.002V16.004h23.997v23.992z" fill="#fff"/>
+        <path d="M4 28l12 11.999v-24l-12 12zM16 40h24L28 28 16 40zM28 28l12-12H16l12 12zM40 16v24l12-12-12-12z"
+              fill="#E71D1C"/>
+    </svg>
+)
+
+export default HsbcSvg
