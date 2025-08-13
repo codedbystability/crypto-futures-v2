@@ -20,7 +20,7 @@ const INITIAL_SL_TP = {
 const BetArea = () => {
     const {t} = useTranslation()
 
-    const {lastData, activeParity, betsAble, betWay} = useSelector(state => state.informationReducer)
+    const {lastData, activeParity, myBetsCount, betWay} = useSelector(state => state.informationReducer)
     const {user} = useSelector(state => state.authenticationReducer)
     // const {user} = useSelector(state => state.authenticationReducer)
     const {limits} = useSelector(state => state.dataReducer)
@@ -570,7 +570,7 @@ const BetArea = () => {
                             data-target="#sheet-2"
                             onClick={handleOpenBets}
                         >
-                            {t('bottom.active-bets')}
+                            {t('bottom.active-bets')}  {myBetsCount}
                             {/*<span>5</span>*/}
                         </button>
                         <button
@@ -592,7 +592,7 @@ const BetArea = () => {
                             data-bs-toggle="modal"
                             onClick={handleShowTransactions}
                         >
-                            {t('bottom.active-bets')}
+                            {t('bottom.active-bets')} {myBetsCount}
                             {/*<span>5</span>*/}
                         </button>
                         <button

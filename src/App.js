@@ -12,6 +12,8 @@ import HowToPlay from "./containers/how-to-play";
 import Header from "./containers/header";
 import Menu from "./containers/menu";
 import './i18n/i18n'
+import {ToastContainer} from "react-toastify";
+
 function App() {
 
 
@@ -38,6 +40,7 @@ function App() {
     return (
         <Provider store={store}>
             <RouterProvider router={router}/>
+            <ToastContainer theme={'dark'}/>
         </Provider>
     );
 }

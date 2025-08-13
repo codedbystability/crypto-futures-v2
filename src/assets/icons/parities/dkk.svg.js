@@ -1,11 +1,14 @@
 import * as React from "react"
 
-const DkkSVg = (props) => (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 370 280" {...props}>
-        <path fill="#c60c30" d="M0 0h370v280H0z" />
-        <path fill="#fff" d="M120 0h40v280h-40z" />
-        <path fill="#fff" d="M0 120h370v40H0z" />
+const DkkSvg = (props) => (
+
+    <svg fill="none" viewBox="0 0 96 96" className="svg-icon ">
+        <path d="M48 0c26.52 0 48 21.48 48 48S74.52 96 48 96 0 74.52 0 48 21.48 0 48 0Z" fill="#EB0A29"></path>
+        <path
+            d="m31.52 51.16-2.68 3.32v11.56h-10.2V26.48h10.2v16.24L41 26.48h12.56L38.2 45l16.2 21.08H41.88L31.48 51.2l.04-.04ZM57.2 37.4h9.12v3.64c1.88-2.32 5.52-4.32 8.96-4.32v8.84c-.52-.16-1.32-.28-2.24-.28-2.36 0-5.52 1-6.72 2.68v18.16H57.2V37.4Zm21.64 18.2c3.04 0 5.56 2.56 5.56 5.56 0 3-2.56 5.56-5.56 5.56-3 0-5.56-2.56-5.56-5.56 0-3 2.56-5.56 5.56-5.56Z"
+            fill="#fff"></path>
     </svg>
+
 )
 
-export default DkkSVg
+export default DkkSvg

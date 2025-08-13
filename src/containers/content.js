@@ -10,6 +10,9 @@ import AUTH_CONSTANTS from "../constants/authentication";
 import {io} from "socket.io-client";
 import AUTH_ACTIONS from "../actions/authentication";
 import Containers from "./index";
+import {toast} from "react-toastify";
+import PositionNotification from "../components/NotificationBar/PositionNotification";
+import InsufficentBalanceNotification from "../components/NotificationBar/InsufficentBalanceNotification";
 
 
 // const signalAudio = new Audio('https://vendor-provider.fra1.cdn.digitaloceanspaces.com/binary/sfx/signal-move.mp3')
@@ -160,23 +163,19 @@ const Content = () => {
     }
 
     const handlePositionAccepted = e => {
-        // console.log('handleOpenPositions', decrypt(e))
 
         store.dispatch({type: INFORMATION_CONSTANTS.SET_BETS_ABLE, data: true})
 
         const data = decrypt(e)
         store.dispatch({type: INFORMATION_CONSTANTS.SET_NEW_BET, data})
 
-        // betAcceptedAudio?.play()
-
-
-        // toast(<PositionNotification notification={data}/>)
+        toast(<PositionNotification notification={data}/>)
     }
 
     const handlePositionUpdated = e => {
         store.dispatch({type: INFORMATION_CONSTANTS.UPDATE_MY_BET, data: JSON.parse(e)})
 
-        const data = JSON.parse(e)
+        // const data = JSON.parse(e)
         // toast(<PositionUpdatedNotification notification={data}/>)
 
     }
@@ -200,15 +199,15 @@ const Content = () => {
         store.dispatch({type: INFORMATION_CONSTANTS.SET_BETS_ABLE, data: true})
 
         const data = JSON.parse(e)
-        // if (data?.value?.includes('balance')) {
-        //     // toast.error(`${t(`notifications.${data?.msg}`)} ${data?.value}`)
-        //     toast(<InsufficentBalanceNotification notification={data}/>)
-        // } else {
-        //     toast(<InsufficentBalanceNotification notification={data}/>)
-        //     // toast.error(t(`notifications.${data?.msg}`))
-        // }
+        if (data?.value?.includes('balance')) {
+            // toast.error(`${t(`notifications.${data?.msg}`)} ${data?.value}`)
+            toast(<InsufficentBalanceNotification notification={data}/>)
+        } else {
+            toast(<InsufficentBalanceNotification notification={data}/>)
+            // toast.error(t(`notifications.${data?.msg}`))
+        }
         // signalAudio?.play()
-        // store.dispatch({type: INFORMATION_CONSTANTS.SET_NEW_BET, data: decrypt(e)})
+        store.dispatch({type: INFORMATION_CONSTANTS.SET_NEW_BET, data: decrypt(e)})
     }
 
 

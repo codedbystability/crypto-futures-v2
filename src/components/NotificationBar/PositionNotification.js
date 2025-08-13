@@ -11,7 +11,6 @@ const PositionNotification = (props) => {
     const {notification} = props
     const {t} = useTranslation()
 
-    console.log('notification =', notification)
     return (
         <div className={'notification'}>
             <div className="title">

@@ -56,7 +56,7 @@ const ClosedBetItem = (props) => {
                 <div className="btable__col tablet">
                     <span className="btable__name">{t('active-bets.bust')}</span>
                     {/* .orange .red .green */}
-                    <span className="btable__text red">${bet?.bust}</span>
+                    <span className="btable__text red">${bet?.bust_price}</span>
                 </div>
                 <div className="btable__col">
                     <span className="btable__name">{t('active-bets.total-profit')}</span>
@@ -114,7 +114,7 @@ const ClosedBetItem = (props) => {
                                 <div className="outcome__locked2 red">
                                     <small>{t('active-bets.bust')}</small>
                                     <p>
-                                        <span>{bet?.bust}</span>
+                                        <span>{bet?.bust_price}</span>
                                     </p>
                                 </div>
                                 {/* .win .lose */}
@@ -168,7 +168,7 @@ const ClosedBetItem = (props) => {
                             <div className="btable__col tablet">
                                 <span className="btable__name">{t('active-bets.bust')}</span>
                                 {/* .orange .red .green */}
-                                <span className="btable__text red">${bet?.bust}</span>
+                                <span className="btable__text red">${bet?.bust_price}</span>
                             </div>
                             {/* <div class="btable__col">
 														<span class="btable__name"></span>
@@ -206,7 +206,7 @@ const ClosedBetItem = (props) => {
                             </div>
 
                             <div className="btable__col">
-                                <span className="btable__name">{t('active-bets.commission')}</span>
+                                <span className="btable__name">{t('closed-bets.commission')}</span>
                                 {/* .orange .red .green */}
                                 <span className="btable__text red">
                                {bet?.commission}
