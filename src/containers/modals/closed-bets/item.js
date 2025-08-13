@@ -42,7 +42,7 @@ const ClosedBetItem = (props) => {
                     </span>
                 </div>
                 {/* .tablet(hidden on mobile) */}
-                <div className="btable__col tablet">
+                <div className="btable__col tablet ">
                     <span className="btable__name">{t('active-bets.entry')}</span>
                     {/* .orange .red .green */}
                     <span className="btable__text orange">${bet?.price}</span>
@@ -152,7 +152,7 @@ const ClosedBetItem = (props) => {
                             </span>
                           </span>
                             </div>
-                            <div className="btable__col big">
+                            <div className="btable__col right">
                                 <span className="btable__name">{t('active-bets.entry')}</span>
                                 {/* .orange .red .green */}
                                 <span className="btable__text orange">
@@ -165,7 +165,7 @@ const ClosedBetItem = (props) => {
                                 <span className="btable__text">${bet?.price_end}</span>
                             </div>
                             {/* .tablet(hidden on mobile) */}
-                            <div className="btable__col tablet">
+                            <div className="btable__col right">
                                 <span className="btable__name">{t('active-bets.bust')}</span>
                                 {/* .orange .red .green */}
                                 <span className="btable__text red">${bet?.bust_price}</span>
@@ -180,7 +180,7 @@ const ClosedBetItem = (props) => {
                                 {/* .orange .red .green */}
                                 <span className="btable__text">{bet?.amount}</span>
                             </div>
-                            <div className="btable__col">
+                            <div className="btable__col right">
                                 <span className="btable__name">{t('active-bets.leverage')}</span>
                                 {/* .orange .red .green */}
                                 <span className="btable__text">x{bet?.multiplier}</span>
@@ -192,7 +192,7 @@ const ClosedBetItem = (props) => {
                                                     {moment.unix(bet?.time / 1000).format('HH:mm:ss')}
                                 </span>
                             </div>
-                            <div className="btable__col">
+                            <div className="btable__col right">
                                 <span className="btable__name">{t('active-bets.id')}</span>
                                 {/* .orange .red .green */}
                                 <span className="btable__text">{bet?.unique_id}</span>
@@ -205,7 +205,7 @@ const ClosedBetItem = (props) => {
                           </span>
                             </div>
 
-                            <div className="btable__col">
+                            <div className="btable__col right">
                                 <span className="btable__name">{t('closed-bets.commission')}</span>
                                 {/* .orange .red .green */}
                                 <span className="btable__text red">

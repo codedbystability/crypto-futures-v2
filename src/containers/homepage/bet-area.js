@@ -497,7 +497,7 @@ const BetArea = () => {
                     <div className="apigame__double">
                         <span className="apigame__label">{t('bet.multiplier')}</span>
                         <div className="apigame__multiplier">
-                            <input type="text" value={leverage} onChange={e => onLeverageChange(e.target.value)}/>
+                            <input type="number" value={leverage} onChange={e => onLeverageChange(e.target.value)}/>
                         </div>
                     </div>
                     <div className="apigame__double">
