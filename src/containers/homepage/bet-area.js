@@ -143,7 +143,7 @@ const BetArea = () => {
 
     const onLeverageChange = value => {
         if (Number(value) <= Number(minMaxLeverage?.min))
-            return setLeverage(Number(minMaxLeverage?.min))
+            return setLeverage('')
         if (Number(value) >= Number(minMaxLeverage?.max))
             return setLeverage(Number(minMaxLeverage?.max))
 
@@ -589,6 +589,7 @@ const BetArea = () => {
                             data-bs-target="#modal-bets"
                             type="button"
                             data-bs-toggle="modal"
+                            disabled={parseFloat(leverage) <= 0}
                             onClick={handleShowTransactions}
                         >
                             {t('bottom.active-bets')}
@@ -600,6 +601,7 @@ const BetArea = () => {
                             data-bs-target="#modal-bets"
                             type="button"
                             data-bs-toggle="modal"
+                            disabled={parseFloat(leverage) <= 0}
                             onClick={handleShowTransactions}
                         >
                             {t('bottom.closed-bets')}
