@@ -562,7 +562,7 @@ const BetArea = () => {
 
 
                 <div className="apigame__group apigame__group--border">
-                    <span className="apigame__label">İşlemler</span>
+                    {/*<span className="apigame__label">İşlemler</span>*/}
                     <div className="apigame__bets mob">
                         <button
                             className="green open-sheet-btn"
@@ -570,8 +570,8 @@ const BetArea = () => {
                             data-target="#sheet-2"
                             onClick={handleOpenBets}
                         >
-                            {t('bottom.active-bets')}  {myBetsCount}
-                            {/*<span>5</span>*/}
+                            {t('bottom.active-bets')}
+                            <span> {myBetsCount}</span>
                         </button>
                         <button
                             className="red open-sheet-btn"
@@ -581,7 +581,6 @@ const BetArea = () => {
 
                         >
                             {t('bottom.closed-bets')}
-                            {/*<span>5</span>*/}
                         </button>
                     </div>
                     <div className="apigame__bets desk">
@@ -592,8 +591,9 @@ const BetArea = () => {
                             data-bs-toggle="modal"
                             onClick={handleShowTransactions}
                         >
-                            {t('bottom.active-bets')} {myBetsCount}
-                            {/*<span>5</span>*/}
+                            {t('bottom.active-bets')}
+                            <span> {myBetsCount}</span>
+
                         </button>
                         <button
                             className="red"

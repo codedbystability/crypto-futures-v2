@@ -30,7 +30,9 @@ const BetsModal = () => {
                                     className={`green ${activeTab === 'open' ? 'active' : ''}`}
                                     onClick={e => setActiveTab('open')}
                                     type="button">
-                                    {t('bottom.active-bets')} {myBetsCount}
+                                    {t('bottom.active-bets')}
+                                    <span> {myBetsCount}</span>
+
                                 </button>
                             </li>
 
