@@ -161,7 +161,11 @@ const MobileBottomSheet = () => {
                                         filteredParitiesUpdates?.map(instrument => (
                                             <button
                                                 key={instrument.code}
-                                                onClick={e => store.dispatch(INFORMATION_ACTIONS.setParity(instrument))}
+                                                onClick={e => {
+                                                    handleClose()
+                                                    store.dispatch(INFORMATION_ACTIONS.setParity(instrument))
+                                                }
+                                                }
                                                 className={`pair ${instrument.code?.substring(0, 3)?.toLowerCase()} ${activeParity?.code === instrument?.code ? 'active' : ''}`}
                                                 type="button">
                                                       <span className="pair__coin">
