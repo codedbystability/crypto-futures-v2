@@ -122,6 +122,15 @@ const BetArea = () => {
         }
     }
     const onAmountChange = value => {
+        const cleanValue = String(value).replace(/[^0-9]/g, '');
+
+        console.log('cleanValue = ',cleanValue)
+        // If nothing left after cleaning → reset
+        if (cleanValue.length === 0) {
+            return setAmount('');
+        }
+
+        value = cleanValue;
         if (!value)
             return setAmount('')
 
@@ -138,10 +147,16 @@ const BetArea = () => {
 
         // if (Number(value) > Number(user?.balance))
         //     return setAmount(Math.floor(user?.balance))
-        return setAmount(Number(value)?.toFixed(0))
+        return setAmount(Number(value))
     }
 
     const onLeverageChange = value => {
+        const cleanValue = String(value).replace(/[^0-9.]/g, '');
+
+        if (!cleanValue) {
+            return setAmount('');
+        }
+
         if (Number(value) <= Number(minMaxLeverage?.min))
             return setLeverage('')
         if (Number(value) >= Number(minMaxLeverage?.max))
@@ -164,7 +179,7 @@ const BetArea = () => {
                 ?.toFixed(parseInt(activeParity?.digits || 0))
 
 
-        setTotalQuantity(Big(leverage * amount).div(prc || 1).toNumber())
+        setTotalQuantity(Big((leverage * amount) || 0).div(prc || 1).toNumber())
 
 
     }, [lastData?.b, leverage, betWay, amount, activeParity])
@@ -177,13 +192,18 @@ const BetArea = () => {
                 // ?.plus((activeParity?.bs || 0) / Math.pow(10, parseInt(activeParity.digits || 1)))
                 ?.toFixed(parseInt(activeParity?.digits || 0))
 
+        console.log({
+            prc,
+            amount,
+            totalQuantity
+        })
         const bustP = betWay === 'up' ?
-            Big(prc).minus(Big(amount || 0).div(totalQuantity || 1)).toNumber()
+            Big(prc || 0).minus(Big(amount || 0).div(totalQuantity || 1) || 1).toNumber()
             :
-            Big(prc).plus(Big(amount || 0).div(totalQuantity || 1)).toNumber()
+            Big(prc || 0).plus(Big(amount || 0).div(totalQuantity || 1) || 1).toNumber()
 
 
-        setBustPrice(Big(bustP)?.toFixed(parseInt(activeParity?.digits || 0)))
+        setBustPrice(Big(bustP || 0)?.toFixed(parseInt(activeParity?.digits || 0)))
     }, [totalQuantity, betWay])
 
     // todo set lost price SL
@@ -468,7 +488,7 @@ const BetArea = () => {
                                         d="M16.314 11.4484H4.253C3.72915 11.4484 3.30469 11.0239 3.30469 10.5001C3.30469 9.97622 3.72915 9.55176 4.253 9.55176H16.314C16.8379 9.55176 17.2623 9.97622 17.2623 10.5001C17.2623 11.0239 16.8379 11.4484 16.314 11.4484Z"/>
                                 </svg>
                             </button>
-                            <input type="number" value={amount} onChange={e => onAmountChange(e.target.value)}/>
+                            <input type="text" value={amount} onChange={e => onAmountChange(e.target.value)}/>
                             <button type="button"
                                     onClick={e => onAmountChange(parseInt(amount) + 10)}
                             >

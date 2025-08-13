@@ -4736,7 +4736,7 @@ input[type="range"]:focus {
 }
 
 .btable__col:last-child {
-    width: 4%
+    width: 10%
 }
 
 .btable__name {
@@ -5003,7 +5003,9 @@ input[type="range"]:focus {
     font-size: 12px;
     text-transform: uppercase;
     font-weight: 800;
-    text-align: center
+    text-align: center;
+    padding-right: 8px;
+    padding-left: 8px;
 }
 
 .details__btn svg {

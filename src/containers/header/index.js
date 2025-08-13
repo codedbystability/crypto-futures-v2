@@ -363,6 +363,7 @@ const Header = () => {
                                                 languages?.map(language => (
                                                     <a
 
+                                                        key={language?.key}
                                                         onClick={e =>
                                                             store.dispatch({
                                                                 type: APPEARANCE_CONSTANTS.SET_ACTIVE_LANGUAGE,
