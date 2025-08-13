@@ -1162,7 +1162,7 @@ input[type="range"]:focus {
 }
 
 .game--apioption .game__pair {
-    margin-bottom: 8px
+    margin-bottom: 4px
 }
 
 @media (min-width: 768px) {
@@ -3785,7 +3785,7 @@ input[type="range"]:focus {
     align-items: flex-start;
     position: relative;
     width: 100%;
-    padding: 8px 0
+    padding: 4px 0
 }
 
 .apigame__title {
@@ -3809,7 +3809,7 @@ input[type="range"]:focus {
 
 .apigame__group--border {
     border-top: 1px solid rgba(66, 79, 102, 0.24);
-    margin-top: 10px;
+    margin-top: 4px;
     padding-top: 10px
 }
 
@@ -4063,8 +4063,8 @@ input[type="range"]:focus {
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    margin-top: 12px;
-    margin-bottom: 12px
+    margin-top: 4px;
+    margin-bottom: 4px
 }
 
 .apigame__range span {
