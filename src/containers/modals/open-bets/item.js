@@ -217,7 +217,7 @@ const OpenBetItem = props => {
                             <div className="btable__col right">
                                 <span className="btable__name">{t('active-bets.leverage')}</span>
                                 {/* .orange .red .green */}
-                                <span className="btable__text">x{bet?.leverage}</span>
+                                <span className="btable__text">{bet?.leverage}x</span>
                             </div>
                             <div className="btable__col">
                                 <span className="btable__name">{t('active-bets.time')}</span>

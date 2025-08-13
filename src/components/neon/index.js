@@ -1,18 +1,21 @@
 // GameNeonChartPerf.js
-import React, { useRef, useEffect } from "react";
+import React, {useRef, useEffect} from "react";
 
 /* ---------- utils ---------- */
 const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
 const lerp = (a, b, t) => a + (b - a) * t;
 const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3);
+
 function hexToRgb(hex) {
     const m = hex.match(/^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i);
     return m ? [parseInt(m[1], 16), parseInt(m[2], 16), parseInt(m[3], 16)] : [0, 0, 0];
 }
+
 function rgbToHex(r, g, b) {
     const c = (x) => Math.round(clamp(x, 0, 255)).toString(16).padStart(2, "0");
     return `#${c(r)}${c(g)}${c(b)}`;
 }
+
 function brighten(rgb, f = 1.6) {
     return rgbToHex(rgb[0] * f, rgb[1] * f, rgb[2] * f);
 }
@@ -33,6 +36,7 @@ export default function GameNeonChartPerf({
                                               pointStep = 2,            // pixels between points (2 = half the points)
                                               scanlines = true,
                                               vignette = true,
+                                              code = null
                                           }) {
     const canvasRef = useRef(null);
     const rafRef = useRef(0);
@@ -43,8 +47,8 @@ export default function GameNeonChartPerf({
     const sweepRef = useRef(0);
     const flashRef = useRef(0);
     const priceRef = useRef(0.55); // normalized 0..1
-    const velRef   = useRef(0);    // momentum
-    const volRef   = useRef(0.35); // volatility level
+    const velRef = useRef(0);    // momentum
+    const volRef = useRef(0.35); // volatility level
     const trendRef = useRef(0);    // slow drift -1..1
 
     const colorMap = {
@@ -73,7 +77,7 @@ export default function GameNeonChartPerf({
     useEffect(() => {
         const cv = canvasRef.current;
         if (!cv) return;
-        const ctx = cv.getContext("2d", { alpha: true });
+        const ctx = cv.getContext("2d", {alpha: true});
 
         let dpr = Math.max(1, window.devicePixelRatio || 1);
         let widthCss = cv.clientWidth || 800;
@@ -101,8 +105,8 @@ export default function GameNeonChartPerf({
 
 
             priceRef.current = 0.55;
-            velRef.current   = 0;
-            volRef.current   = 0.35;
+            velRef.current = 0;
+            volRef.current = 0.35;
             trendRef.current = (Math.random() - 0.5) * 0.2; // small initial drift
 
 
@@ -166,7 +170,7 @@ export default function GameNeonChartPerf({
         };
 
         buildStatics();
-        window.addEventListener("resize", resize, { passive: true });
+        window.addEventListener("resize", resize, {passive: true});
 
         const onVisibility = () => {
             runningRef.current = !document.hidden;
@@ -391,12 +395,14 @@ export default function GameNeonChartPerf({
         pointStep,
         scanlines,
         vignette,
+        code
     ]);
 
     return (
         <canvas
+            key={String(code ?? 0)}   // ⚡ forces unmount/remount on code change
             ref={canvasRef}
-            style={{ width: "100%", height: "100%", display: "block" }}
+            style={{width: "100%", height: "100%", display: "block"}}
         />
     );
 }

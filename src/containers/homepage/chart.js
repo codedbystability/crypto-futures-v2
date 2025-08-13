@@ -181,7 +181,7 @@ const Chart = () => {
                                 height: '100%',
                                 width: '100%',
                             }}>
-                                <GameNeonChartFinal lineColor={color}/>
+                                <GameNeonChartFinal code={activeParity?.code} lineColor={color}/>
                             </div>
                             {/* .green .red .orange */}
                             <div className={`apioption ${color}`}>

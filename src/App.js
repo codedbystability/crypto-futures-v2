@@ -40,7 +40,9 @@ function App() {
     return (
         <Provider store={store}>
             <RouterProvider router={router}/>
-            <ToastContainer theme={'dark'}/>
+            <ToastContainer
+                position={'bottom-left'}
+                theme={'dark'}/>
         </Provider>
     );
 }
