@@ -4,8 +4,8 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 
-console.log = () => {
-}
+// console.log = () => {
+// }
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <App/>

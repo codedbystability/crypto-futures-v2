@@ -149,14 +149,21 @@ const BetArea = () => {
     }
 
     const onLeverageChange = value => {
-        const cleanValue = String(value).replace(/[^0-9.]/g, '');
 
-        if (!cleanValue) {
-            return setAmount('');
+        const cleanValue = String(value).replace(/[^0-9]/g, '');
+        // If nothing left after cleaning → reset
+        if (cleanValue.length === 0) {
+            return setLeverage('');
         }
 
-        if (Number(value) <= Number(minMaxLeverage?.min))
+        value = cleanValue;
+        if (!value)
             return setLeverage('')
+
+        // const cleanValue = String(value).replace(/[^0-9.]/g, '');
+
+        if (Number(value) <= Number(minMaxLeverage?.min))
+            return setLeverage(Number(minMaxLeverage?.min))
         if (Number(value) >= Number(minMaxLeverage?.max))
             return setLeverage(Number(minMaxLeverage?.max))
 
@@ -190,11 +197,6 @@ const BetArea = () => {
                 // ?.plus((activeParity?.bs || 0) / Math.pow(10, parseInt(activeParity.digits || 1)))
                 ?.toFixed(parseInt(activeParity?.digits || 0))
 
-        console.log({
-            prc,
-            amount,
-            totalQuantity
-        })
         const bustP = betWay === 'up' ?
             Big(prc || 0).minus(Big(amount || 0).div(totalQuantity || 1) || 1).toNumber()
             :
