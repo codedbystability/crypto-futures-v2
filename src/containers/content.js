@@ -338,7 +338,7 @@ const Content = () => {
             console.log('TCP SOCKET CONNECTED  = ', new Date())
             isFirstConnect = false
 
-
+            window?.tcpSocketServer?.removeAllListeners()
             window?.tcpSocketServer?.off('account:setuser', handleSetUser)?.on('account:setuser', handleSetUser)
 
 
