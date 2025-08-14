@@ -160,6 +160,7 @@ const BetArea = () => {
         if (!value)
             return setLeverage('')
 
+        console.log(value)
         // const cleanValue = String(value).replace(/[^0-9.]/g, '');
 
         if (Number(value) <= Number(minMaxLeverage?.min))
@@ -517,7 +518,7 @@ const BetArea = () => {
                     <div className="apigame__double">
                         <span className="apigame__label">{t('bet.multiplier')}</span>
                         <div className="apigame__multiplier">
-                            <input type="number" value={leverage} onChange={e => onLeverageChange(e.target.value)}/>
+                            <input type="text" value={leverage} onChange={e => onLeverageChange(e.target.value)}/>
                         </div>
                     </div>
                     <div className="apigame__double">
