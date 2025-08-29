@@ -169,20 +169,24 @@ const Header = () => {
         return results == null ? null : results[1];
     }
 
+    const handleHome = () =>
+        window?.open('https://welcome.apioption.com?direct_auth=' + gup('direct_auth', window.location.href), '_self')
 
-    const handleHome = () => {
-        const menu = document.getElementById('menu')
-        menu?.classList?.remove('menu--active')
 
-        const params = new URLSearchParams(location.search);
-        const directAuth = params.get("direct_auth");
 
-        if (directAuth) {
-            navigate(`/?direct_auth=${encodeURIComponent(directAuth)}`);
-        } else {
-            navigate("/");
-        }
-    }
+    // const handleHome = () => {
+    //     const menu = document.getElementById('menu')
+    //     menu?.classList?.remove('menu--active')
+    //
+    //     const params = new URLSearchParams(location.search);
+    //     const directAuth = params.get("direct_auth");
+    //
+    //     if (directAuth) {
+    //         navigate(`/?direct_auth=${encodeURIComponent(directAuth)}`);
+    //     } else {
+    //         navigate("/");
+    //     }
+    // }
 
     return (
         <header className="header">
